@@ -1,0 +1,172 @@
+---
+import { ArrowUpRight } from "@lucide/astro";
+import "swiper/css";
+import "swiper/css/navigation";
+
+// 1. Definimos la estructura de nuestros datos
+interface Project {
+  title: string;
+  image: string;
+  url: string;
+  description: string;
+  category: string;
+}
+
+// 2. Creamos el array con los datos
+const projects: Project[] = [
+  {
+    title: "CASA NORTE",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop", // Pon aquí tu ruta de imagen real
+    url: "casanorte.com",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis vero eum eos praesentium ipsum itaque assumenda sed impedit",
+    category: "Sistema a medida",
+  },
+  {
+    title: "EDIFICIO SUR",
+    image:
+      "https://images.unsplash.com/photo-1512917774080-9991f1c4c750?q=80&w=800&auto=format&fit=crop",
+    url: "edificiosur.com",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis vero eum eos praesentium ipsum itaque assumenda sed impedit",
+    category: "Catalogo Digital",
+  },
+  {
+    title: "VILLA ESTE",
+    image:
+      "https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=800&auto=format&fit=crop",
+    url: "villaeste.mx",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis vero eum eos praesentium ipsum itaque assumenda sed impedit",
+    category: "Sistema a medida",
+  },
+  {
+    title: "CASA NORTE",
+    image:
+      "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?q=80&w=800&auto=format&fit=crop",
+    url: "casanorte.com",
+    description:
+      "Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facilis vero eum eos praesentium ipsum itaque assumenda sed impedit",
+    category: "Landing Page",
+  },
+];
+---
+
+<div id="projects-track" class="swiper mySwiper w-full">
+  <div class="swiper-wrapper">
+    {projects.map((project) => (
+      <div class="swiper-slide min-w-0 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start">
+        <div
+          data-pencil-name="Cover"
+          class="relative box-border w-full aspect-3/2 min-h-50 shrink-0 flex flex-col gap-0 p-2 justify-between items-start overflow-hidden bg-[#0B0D09]"
+        >
+          <img
+            src={project.image}
+            alt={project.title}
+            class="absolute inset-0 w-full h-full object-cover opacity-60"
+          />
+          <div class="relative z-10 w-full h-full flex flex-col justify-between">
+            <div
+              data-pencil-name="Category"
+              class="text-xs/[normal] w-fit box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left whitespace-nowrap text-white bg-[#0B0D09]/50 p-1 rounded-sm"
+            >
+              {project.category}
+            </div>
+          </div>
+        </div>
+        <div
+          data-pencil-name="Info"
+          class="box-border w-full h-fit shrink-0 flex flex-row gap-4 justify-between items-start pt-3"
+        >
+          <div
+            data-pencil-name="Info Left"
+            class="box-border flex-[1_1_0] h-fit flex flex-col gap-1.25 justify-start items-start min-w-0"
+          >
+            <div
+              data-pencil-name="Project Name"
+              class="text-[22px]/[22px] sm:text-[26px]/[26px] box-border w-full text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-bold text-left truncate"
+            >
+              {project.title}
+            </div>
+            <div
+              data-pencil-name="Project Meta"
+              class="text-xs/[normal] box-border text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.6px] text-left line-clamp-3 w-full"
+            >
+              {project.description}
+            </div>
+          </div>
+          <a href={project.url} target="_blank">
+            <ArrowUpRight class="box-border w-4.5 shrink-0 h-4.5 overflow-visible text-[#0d0f0b]" />
+          </a>
+        </div>
+      </div>
+    ))}
+  </div>
+</div>
+
+<script>
+  import Swiper from "swiper";
+  import { Navigation } from "swiper/modules";
+
+  const swiper = new Swiper(".mySwiper", {
+    modules: [Navigation],
+    slidesPerView: 1.05,
+    spaceBetween: 16,
+    loop: true,
+    grabCursor: true,
+    breakpoints: {
+      480: {
+        slidesPerView: 1.2,
+        spaceBetween: 16,
+      },
+      640: {
+        slidesPerView: 1.4,
+        spaceBetween: 20,
+      },
+      768: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      1024: {
+        slidesPerView: 2.5,
+        spaceBetween: 20,
+      },
+      1280: {
+        slidesPerView: 3,
+        spaceBetween: 20,
+      },
+    },
+    pagination: {
+      el: ".swiper-pagination",
+      clickable: true,
+    },
+    navigation: {
+      nextEl: "[data-projects-next]",
+      prevEl: "[data-projects-prev]",
+    },
+  });
+</script>
+
+<style>
+  .mySwiper {
+    margin: auto;
+    max-width: 1312px;
+    width: 100%;
+    height: auto;
+  }
+
+  .swiper-slide {
+    height: auto;
+    text-align: left;
+  }
+
+  :global(.swiper-button-next),
+  :global(.swiper-button-prev) {
+    color: #111;
+  }
+
+  :global(.swiper-pagination-bullet-active) {
+    background-color: #fff;
+  }
+</style>

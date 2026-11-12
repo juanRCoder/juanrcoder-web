@@ -1,131 +1,102 @@
-<div
-  data-pencil-name="How It Works"
-  class="box-border w-full h-fit shrink-0 flex flex-col gap-[60px] p-[104px_64px_110px_64px] justify-start items-start bg-[#0B0D09]"
->
+---
+interface Step {
+  num: string;
+  title: string;
+  description: string;
+}
+
+const steps: Step[] = [
+  {
+    num: "01",
+    title: "Conversamos",
+    description:
+      "Nos cuentas sobre tu negocio, tus objetivos y lo que necesitas.",
+  },
+  {
+    num: "02",
+    title: "Diseño",
+    description: "Creo la propuesta visual y la ajustamos contigo.",
+  },
+  {
+    num: "03",
+    title: "Desarrollo",
+    description: "Construyo tu proyecto rápido, seguro y responsive.", // Typo corregido
+  },
+  {
+    num: "04",
+    title: "Lanzamos",
+    description: "Publicamos, probamos todo y te doy acompañamiento después.",
+  },
+];
+---
+
+<div data-pencil-name="Cómo Funciona" class="bg-[#0B0D09] w-full">
   <div
-    data-pencil-name="Head"
-    class="box-border w-full h-fit shrink-0 flex flex-row gap-[48px] justify-between items-end"
+    data-pencil-name="How It Works"
+    class="max-w-360 mx-auto box-border w-full h-fit shrink-0 flex flex-col gap-10 sm:gap-15 px-5 py-14 sm:px-8 sm:py-16 xl:p-[104px_64px_110px_64px] justify-start items-start"
   >
+    <!-- Sección de Encabezado (Se mantiene igual) -->
     <div
-      data-pencil-name="Left"
-      class="box-border w-[787px] shrink-0 h-fit flex flex-col gap-[20px] justify-start items-start"
+      data-pencil-name="Head"
+      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 xl:flex-row xl:gap-[48px] justify-between items-start xl:items-end"
     >
       <div
-        data-pencil-name="Eyebrow"
-        class="text-[11px]/[normal] box-border text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left [white-space:nowrap]"
+        data-pencil-name="Left"
+        class="box-border w-full xl:w-[787px] shrink-0 h-fit flex flex-col gap-4 xl:gap-[20px] justify-start items-start"
       >
-        03 — CÓMO FUNCIONA
+        <div
+          data-pencil-name="Eyebrow"
+          class="text-[11px]/[normal] box-border text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left whitespace-nowrap"
+        >
+          03 — CÓMO FUNCIONA
+        </div>
+        <div
+          data-pencil-name="H2"
+          class="text-[48px]/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] box-border w-full xl:w-[777px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
+        >
+          PARA QUE EL SOFTWARE FUNCIONE.
+        </div>
       </div>
       <div
-        data-pencil-name="H2"
-        class="text-[88px]/[87px] box-border w-[777px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left"
+        data-pencil-name="Note"
+        class="text-[15px]/[24px] box-border w-full max-w-[300px] xl:w-[300px] xl:shrink-0 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
       >
-        PARA QUE EL SOFTWARE FUNCIONE.
+        Cuatro pasos, sin necesidad de un teatro de descubrimiento. Hablas
+        directamente conmigo.
       </div>
     </div>
+
+    <!-- Sección de Pasos Optimizada -->
     <div
-      data-pencil-name="Note"
-      class="text-[15px]/[24px] box-border w-[300px] shrink-0 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+      data-pencil-name="Steps"
+      class="box-border w-full h-fit shrink-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-[40px]"
     >
-      Cuatro pasos, sin necesidad de un teatro de descubrimiento. Hablas
-      directamente conmigo.
-    </div>
-  </div>
-  <div
-    data-pencil-name="Steps"
-    class="box-border w-full h-fit shrink-0 flex flex-row gap-[40px] justify-start items-start"
-  >
-    <div
-      data-pencil-name="Step 01"
-      class="box-border [flex:1_1_0] h-fit flex flex-col gap-[16px] p-[24px_0px_0px_0px] justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
-    >
-      <div
-        data-pencil-name="Num"
-        class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left [white-space:nowrap]"
-      >
-        01
-      </div>
-      <div
-        data-pencil-name="Title"
-        class="text-[36px]/[32px] box-border w-[337px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left"
-      >
-        Conversamos
-      </div>
-      <div
-        data-pencil-name="Body"
-        class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
-      >
-        Nos cuentas sobre tu negocio, tus objetivos y lo que necesitas.
-      </div>
-    </div>
-    <div
-      data-pencil-name="Step 02"
-      class="box-border [flex:1_1_0] h-fit flex flex-col gap-[16px] p-[24px_0px_0px_0px] justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
-    >
-      <div
-        data-pencil-name="Num"
-        class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left [white-space:nowrap]"
-      >
-        02
-      </div>
-      <div
-        data-pencil-name="Title"
-        class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left [white-space:nowrap]"
-      >
-        Diseño
-      </div>
-      <div
-        data-pencil-name="Body"
-        class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
-      >
-        Creo la propuesta visual y la ajustamos contigo.
-      </div>
-    </div>
-    <div
-      data-pencil-name="Step 03"
-      class="box-border [flex:1_1_0] h-fit flex flex-col gap-[16px] p-[24px_0px_0px_0px] justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
-    >
-      <div
-        data-pencil-name="Num"
-        class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left [white-space:nowrap]"
-      >
-        03
-      </div>
-      <div
-        data-pencil-name="Title"
-        class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left [white-space:nowrap]"
-      >
-        Desarrollo
-      </div>
-      <div
-        data-pencil-name="Body"
-        class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
-      >
-        Constryo tu proyecto rápido, seguro y responsive.
-      </div>
-    </div>
-    <div
-      data-pencil-name="Step 03"
-      class="box-border [flex:1_1_0] h-fit flex flex-col gap-[16px] p-[24px_0px_0px_0px] justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
-    >
-      <div
-        data-pencil-name="Num"
-        class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left [white-space:nowrap]"
-      >
-        03
-      </div>
-      <div
-        data-pencil-name="Title"
-        class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left [white-space:nowrap]"
-      >
-        Lanzamos
-      </div>
-      <div
-        data-pencil-name="Body"
-        class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
-      >
-        Publicamos, probamos todo y te doy acompañamiento después.
-      </div>
+      <!-- 3. Iteramos sobre el array -->
+      {steps.map((step) => (
+        <div
+          data-pencil-name={`Step ${step.num}`}
+          class="box-border h-fit flex flex-col gap-4 pt-6 justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
+        >
+          <div
+            data-pencil-name="Num"
+            class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left whitespace-nowrap"
+          >
+            {step.num}
+          </div>
+          <div
+            data-pencil-name="Title"
+            class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left"
+          >
+            {step.title}
+          </div>
+          <div
+            data-pencil-name="Body"
+            class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+          >
+            {step.description}
+          </div>
+        </div>
+      ))}
     </div>
   </div>
 </div>

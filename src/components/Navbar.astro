@@ -1,0 +1,160 @@
+---
+import { Menu } from "@lucide/astro";
+---
+
+<header
+  data-navbar
+  class="fixed inset-x-0 top-0 z-50 bg-[#0B0D09]/75 backdrop-blur-md"
+>
+  <div
+    data-pencil-name="Nav"
+    class="box-border w-full max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 h-fit shrink-0 flex flex-row gap-0 justify-between items-center relative"
+  >
+    <!-- Logo -->
+    <div class="box-border w-fit shrink-0 h-fit flex flex-row gap-2.5 justify-start items-center">
+      <div
+        class="box-border w-9.75 shrink-0 h-11"
+        style="background-image: url('/logo1.png'); background-position: center; background-repeat: no-repeat; background-size: cover"
+      ></div>
+      <div class="text-[18px]/[normal] box-border text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] text-left whitespace-nowrap">
+        juanra
+        <br />
+        software
+      </div>
+    </div>
+
+    <!-- Enlaces (Ocultos en móvil, visibles en md+) -->
+    <div class="hidden md:flex box-border w-fit shrink-0 h-fit flex-row gap-8.5 justify-start items-center">
+      <a
+        href="#servicios"
+        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
+      >
+        Servicios
+      </a>
+      <a
+        href="#proyectos"
+        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
+      >
+        Proyectos
+      </a>
+      <a
+        href="#contacto"
+        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
+      >
+        Contacto
+      </a>
+    </div>
+    <a
+      href="#"
+      class="hidden md:flex items-center justify-center px-4.5 py-2.5 rounded-[40px] border border-[#F5F6EF]/50 bg-transparent text-[#F5F6EF] cursor-pointer transition-all duration-300 ease-out group hover:bg-white/10 hover:border-[#F5F6EF] hover:backdrop-blur-md hover:shadow-[0_0_15px_rgba(245,246,239,0.2)]"
+    >
+      <span class="text-xs text-[#F5F6EF] font-['Geist_Mono',system-ui,sans-serif] tracking-[1px] whitespace-nowrap transition-transform duration-300 group-hover:translate-x-0.5">
+        Hablemos ↗
+      </span>
+    </a>
+
+    <!-- Icono Menú Hamburguesa (Visible solo en móvil) -->
+    <button
+      type="button"
+      data-menu-toggle
+      class="md:hidden flex justify-center items-center text-[#F5F6EF] p-2 cursor-pointer"
+      aria-label="Abrir menú"
+      aria-expanded="false"
+      aria-controls="mobile-navigation"
+    >
+      <Menu class="w-7 h-7" />
+    </button>
+  </div>
+  <nav
+    id="mobile-navigation"
+    data-mobile-menu
+    data-open="false"
+    aria-hidden="true"
+    aria-label="Navegación móvil"
+    class="absolute inset-x-0 top-full w-full bg-[#0B0D09]/75 backdrop-blur-md border-y border-[#F5F6EF]/15 shadow-[0_12px_32px_rgba(0,0,0,0.3)] md:hidden"
+  >
+    <div class="mx-auto flex w-full max-w-360 flex-col px-6 md:px-16">
+      <a
+        href="#servicios"
+        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
+      >
+        Servicios
+      </a>
+      <a
+        href="#proyectos"
+        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
+      >
+        Proyectos
+      </a>
+      <a
+        href="#contacto"
+        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
+      >
+        Contacto
+      </a>
+    </div>
+  </nav>
+</header>
+
+<script>
+  const menuButton =
+    document.querySelector<HTMLButtonElement>("[data-menu-toggle]");
+  const mobileMenu = document.querySelector<HTMLElement>("[data-mobile-menu]");
+
+  if (menuButton && mobileMenu) {
+    const setMenuOpen = (isOpen: boolean) => {
+      mobileMenu.dataset.open = String(isOpen);
+      mobileMenu.setAttribute("aria-hidden", String(!isOpen));
+      menuButton.setAttribute("aria-expanded", String(isOpen));
+      menuButton.setAttribute(
+        "aria-label",
+        isOpen ? "Cerrar menú" : "Abrir menú",
+      );
+    };
+
+    const closeMenu = () => {
+      setMenuOpen(false);
+    };
+
+    menuButton.addEventListener("click", () => {
+      const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
+      setMenuOpen(!isExpanded);
+    });
+
+    mobileMenu.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", closeMenu);
+    });
+
+    document.addEventListener("keydown", (event) => {
+      if (event.key !== "Escape" || mobileMenu.dataset.open !== "true") return;
+      closeMenu();
+      menuButton.focus();
+    });
+  }
+</script>
+
+<style>
+  [data-mobile-menu] {
+    opacity: 0;
+    transform: translateY(-0.75rem);
+    visibility: hidden;
+    pointer-events: none;
+    transition:
+      opacity 180ms ease-out,
+      transform 180ms ease-out,
+      visibility 180ms;
+  }
+
+  [data-mobile-menu][data-open="true"] {
+    opacity: 1;
+    transform: translateY(0);
+    visibility: visible;
+    pointer-events: auto;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    [data-mobile-menu] {
+      transition: none;
+    }
+  }
+</style>
