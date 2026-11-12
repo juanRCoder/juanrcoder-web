@@ -1,7 +1,13 @@
 ---
-import '../styles/global.css';
+import Hero from "../components/hero.astro";
+import Services from "../components/services.astro"
+import Projects from "../components/projects.astro"
+import HowWorks from "../components/howWorks.astro"
+import Cta from "../components/cta.astro"
+import Footer from "../components/footer.astro"
+import "../styles/global.css";
 
-const title = 'juanrcoder-web';
+const title = "juanrcoder-web";
 ---
 
 <!doctype html>
@@ -12,10 +18,45 @@ const title = 'juanrcoder-web';
     <meta name="description" content="Sitio personal de juanrcoder." />
     <title>{title}</title>
   </head>
-  <body class="grid min-h-screen place-items-center bg-slate-50 font-sans text-slate-900">
-    <main class="p-8 text-center">
-      <h1 class="mb-2 text-4xl font-bold">Hola, mundo</h1>
-      <p class="text-slate-600">Bienvenido a {title}.</p>
-    </main>
+  <body class="box-border w-[1440px] h-fit flex flex-col gap-0 justify-start items-start bg-[#25291F] mx-auto overflow-x-hidden">
+    <Hero />
+    <div
+      data-pencil-name="Interlude"
+      class="box-border w-full h-fit shrink-0 flex flex-col gap-[24px] p-[80px_64px] justify-start items-start bg-[#EFF1EA] [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#D2D6C8]"
+    >
+      <div
+        data-pencil-name="Eyebrow"
+        class="text-[11px]/[normal] box-border text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left [white-space:nowrap]"
+      >
+        LA VERSIÓN CORTA
+      </div>
+      <div
+        data-pencil-name="Quote"
+        class="text-[58px]/[57px] box-border w-[1100px] text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-bold text-left"
+      >
+        LA MAYORÍA DE LO QUE NECESITAS YA EXISTE. SIMPLEMENTE NO FUE DISEÑADO
+        PARA TU NEGOCIO.
+      </div>
+      <div
+        data-pencil-nameF="Quote Foot"
+        class="box-border w-fit h-fit shrink-0 flex flex-row gap-[12px] p-[8px_0px_0px_0px] justify-start items-center"
+      >
+        <div
+          data-pencil-name="Rule"
+          class="box-border w-[56px] shrink-0 h-[2px] bg-[#0D0F0B]"
+        ></div>
+        <div
+          data-pencil-name="Note"
+          class="text-[15px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left [white-space:nowrap]"
+        >
+          Sin intermediarios: hablás conmigo.
+        </div>
+      </div>
+    </div>
+    <Services />
+    <Projects />
+    <HowWorks />
+    <Cta />
+    <Footer />
   </body>
 </html>
