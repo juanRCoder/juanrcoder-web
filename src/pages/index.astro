@@ -7,13 +7,14 @@ import Cta from "../components/cta.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
 
-const title = "juanrcoder-web";
+const title = "juanra | software";
 ---
 
 <!doctype html>
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <link rel="icon" href="/logo1.png" type="image/png" />
     <meta name="viewport" content="width=device-width" />
     <meta name="description" content="Sitio personal de juanrcoder." />
     <title>{title}</title>
@@ -32,10 +33,11 @@ const title = "juanrcoder-web";
       </div>
       <div
         data-pencil-name="Quote"
+        data-aos="fade-up"
         class="text-4xl md:text-[58px] box-border text-[#0D0F0B] tracking-tighter font-['Big_Shoulders',system-ui,sans-serif] font-bold text-left"
       >
-        LA MAYORÍA DE LO QUE NECESITAS YA EXISTE. <br class="hidden lg:block" />{" "}SIMPLEMENTE NO FUE DISEÑADO
-        PARA TU NEGOCIO.
+        LA MAYORÍA DE LO QUE NECESITAS YA EXISTE. <br class="hidden lg:block" />{" "}
+        SIMPLEMENTE NO FUE DISEÑADO PARA TU NEGOCIO.
       </div>
       <div
         data-pencil-nameF="Quote Foot"
@@ -47,6 +49,8 @@ const title = "juanrcoder-web";
         ></div>
         <div
           data-pencil-name="Note"
+          data-aos="fade-up"
+          data-aos-delay="100"
           class="text-[15px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
         >
           Sin intermediarios: hablás conmigo.
@@ -60,3 +64,16 @@ const title = "juanrcoder-web";
     <Footer />
   </body>
 </html>
+
+<script>
+  import AOS from "aos";
+
+  AOS.init({
+    duration: 700,
+    easing: "ease-out-cubic",
+    once: true,
+    offset: 80,
+  });
+
+  document.documentElement.classList.add("aos-enabled");
+</script>

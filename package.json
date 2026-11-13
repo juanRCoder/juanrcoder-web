@@ -10,13 +10,17 @@
   "dependencies": {
     "@astroanimate/core": "^0.1.2",
     "@lucide/astro": "^1.72.0",
+    "aos": "^2.3.4",
     "astro": "^5.0.0",
     "swiper": "^14.4.0"
   },
   "devDependencies": {
+    "@astrojs/check": "^0.9.12",
     "@tailwindcss/vite": "^4.3.5",
+    "@types/aos": "^3.0.8",
     "prettier": "^3.10.1",
     "prettier-plugin-astro": "^1.1.2",
-    "tailwindcss": "^4.3.5"
+    "tailwindcss": "^4.3.5",
+    "typescript": "^5.9.3"
   }
 }

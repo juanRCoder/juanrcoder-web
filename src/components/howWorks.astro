@@ -38,11 +38,12 @@ const steps: Step[] = [
     <!-- Sección de Encabezado (Se mantiene igual) -->
     <div
       data-pencil-name="Head"
-      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 xl:flex-row xl:gap-[48px] justify-between items-start xl:items-end"
+      data-aos="fade-up"
+      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between items-start xl:items-end"
     >
       <div
         data-pencil-name="Left"
-        class="box-border w-full xl:w-[787px] shrink-0 h-fit flex flex-col gap-4 xl:gap-[20px] justify-start items-start"
+        class="box-border w-full xl:w-196.75 shrink-0 h-fit flex flex-col gap-4 xl:gap-5 justify-start items-start"
       >
         <div
           data-pencil-name="Eyebrow"
@@ -52,14 +53,14 @@ const steps: Step[] = [
         </div>
         <div
           data-pencil-name="H2"
-          class="text-[48px]/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] box-border w-full xl:w-[777px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
+          class="text-12/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] box-border w-full xl:w-194 text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
         >
           PARA QUE EL SOFTWARE FUNCIONE.
         </div>
       </div>
       <div
         data-pencil-name="Note"
-        class="text-[15px]/[24px] box-border w-full max-w-[300px] xl:w-[300px] xl:shrink-0 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+        class="text-[15px]/[24px] box-border w-full max-w-75 xl:w-75 xl:shrink-0 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
       >
         Cuatro pasos, sin necesidad de un teatro de descubrimiento. Hablas
         directamente conmigo.
@@ -69,14 +70,23 @@ const steps: Step[] = [
     <!-- Sección de Pasos Optimizada -->
     <div
       data-pencil-name="Steps"
-      class="box-border w-full h-fit shrink-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-[40px]"
+      class="box-border w-full h-fit shrink-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-10"
     >
       <!-- 3. Iteramos sobre el array -->
-      {steps.map((step) => (
+      {steps.map((step, index) => (
         <div
           data-pencil-name={`Step ${step.num}`}
-          class="box-border h-fit flex flex-col gap-4 pt-6 justify-start items-start [border-width:1px_0px_0px_0px] [border-style:solid] [border-color:#25291F]"
+          data-aos="fade-up"
+          data-aos-delay={index * 100}
+          // 1. Agregamos la clase 'group' y 'relative' al contenedor principal
+          class="group relative box-border h-fit flex flex-col gap-4 pt-6 justify-start items-start"
         >
+          <!-- 2. Línea base (Gris oscuro) -->
+          <div class="absolute top-0 left-0 w-full h-[1px] bg-[#25291F]"></div>
+
+          <!-- 3. Línea animada (Verde) que se expande -->
+          <div class="absolute top-0 left-0 w-full h-[1px] bg-[#C7F14B] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></div>
+
           <div
             data-pencil-name="Num"
             class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left whitespace-nowrap"
@@ -85,7 +95,7 @@ const steps: Step[] = [
           </div>
           <div
             data-pencil-name="Title"
-            class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left"
+            class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left transition-colors duration-300 group-hover:text-[#C7F14B]"
           >
             {step.title}
           </div>
