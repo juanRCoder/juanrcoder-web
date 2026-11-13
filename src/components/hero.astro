@@ -36,10 +36,15 @@ import Navbar from "./Navbar.astro";
     <div class="box-border w-full md:w-fit h-fit shrink-0 flex flex-row gap-6.5 justify-start items-center mt-4 md:mt-0">
       <a
         href="#contacto"
-        class="w-full md:w-fit box-border flex justify-center md:justify-start p-[18px_30px] bg-[#C7F14B] hover:bg-[#b0d941] transition-colors"
+        class="group w-full md:w-fit box-border flex justify-center md:justify-start items-center gap-2 p-[18px_30px] bg-[#C7F14B]
+        transition-all duration-300 ease-out
+        hover:-translate-y-1 hover:bg-[#b0d941] hover:shadow-[0_8px_25px_-8px_rgba(199,241,75,0.5)]"
       >
         <span class="text-[15px]/[normal] text-[#121507] font-['Instrument_Sans',system-ui,sans-serif] font-semibold text-center">
-          Cotizar mi proyecto ↗
+          Cotizar mi proyecto
+        </span>
+        <span class="text-[15px]/[normal] text-[#121507] font-['Instrument_Sans',system-ui,sans-serif] font-semibold transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1">
+          ↗
         </span>
       </a>
     </div>

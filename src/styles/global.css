@@ -4,12 +4,28 @@
 @import "tailwindcss";
 @import "aos/dist/aos.css";
 
+html {
+  --navbar-height: 4.25rem;
+  scroll-behavior: smooth;
+  scroll-padding-top: calc(var(--navbar-height) + 0.5rem);
+}
+
+@media (min-width: 768px) {
+  html {
+    --navbar-height: 5.5rem;
+  }
+}
+
 html:not(.aos-enabled) [data-aos] {
   opacity: 1 !important;
   transform: none !important;
 }
 
 @media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
   [data-aos] {
     opacity: 1 !important;
     transform: none !important;

@@ -67,12 +67,10 @@ const steps: Step[] = [
       </div>
     </div>
 
-    <!-- Sección de Pasos Optimizada -->
     <div
       data-pencil-name="Steps"
       class="box-border w-full h-fit shrink-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-10"
     >
-      <!-- 3. Iteramos sobre el array -->
       {steps.map((step, index) => (
         <div
           data-pencil-name={`Step ${step.num}`}
@@ -81,11 +79,8 @@ const steps: Step[] = [
           // 1. Agregamos la clase 'group' y 'relative' al contenedor principal
           class="group relative box-border h-fit flex flex-col gap-4 pt-6 justify-start items-start"
         >
-          <!-- 2. Línea base (Gris oscuro) -->
-          <div class="absolute top-0 left-0 w-full h-[1px] bg-[#25291F]"></div>
-
-          <!-- 3. Línea animada (Verde) que se expande -->
-          <div class="absolute top-0 left-0 w-full h-[1px] bg-[#C7F14B] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100"></div>
+          <div class="absolute top-0 left-0 w-full h-px bg-[#25291F]" />
+          <div class="absolute top-0 left-0 w-full h-px bg-[#C7F14B] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
           <div
             data-pencil-name="Num"

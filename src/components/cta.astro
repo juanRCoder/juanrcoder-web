@@ -2,7 +2,11 @@
 import { Mail, MessageCircle } from "@lucide/astro";
 ---
 
-<div data-pencil-name="Call to Action" class="bg-[#C7F14B] w-full">
+<div
+  id="contacto"
+  data-pencil-name="Call to Action"
+  class="bg-[#C7F14B] w-full"
+>
   <div
     data-pencil-name="CTA"
     class="max-w-360 mx-auto box-border w-full h-fit shrink-0 flex flex-col gap-6 sm:gap-7 px-5 py-14 sm:px-8 sm:py-16 xl:p-[75px_64px] justify-start items-start"
@@ -34,30 +38,37 @@ import { Mail, MessageCircle } from "@lucide/astro";
       </div>
       <div
         data-pencil-name="Buttons"
-        class="box-border w-full sm:w-fit shrink-0 h-fit flex flex-col gap-[18px] justify-start items-stretch sm:items-end"
+        class="box-border w-full sm:w-fit shrink-0 h-fit flex flex-col gap-4.5 justify-start items-stretch sm:items-end"
       >
-        <div
+        <a
+          href="https://wa.me/956402456"
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Cotizar por WhatsApp"
           data-pencil-name="WhatsApp CTA"
-          class="box-border w-full sm:w-fit h-fit shrink-0 flex flex-row gap-[14px] p-[16px_26px] justify-start items-center bg-[#0D0F0B]"
+          class="group cursor-pointer box-border w-full sm:w-fit h-fit shrink-0 flex flex-row gap-3.5 p-[16px_26px] justify-start items-center bg-[#0D0F0B]
+          transition-all duration-300 ease-out
+          hover:-translate-y-1 hover:bg-[#151713] hover:shadow-[0_8px_25px_-8px_rgba(199,241,75,0.4)]"
         >
-          <MessageCircle class="box-border w-[16px] shrink-0 h-[16px] overflow-visible text-[#c7f14b]" />
+          <MessageCircle class="box-border w-4 shrink-0 h-4 overflow-visible text-[#c7f14b] transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
+
           <div
             data-pencil-name="WA Text"
-            class="box-border w-fit shrink-0 h-fit flex flex-col gap-[2px] justify-start items-start"
+            class="box-border w-fit shrink-0 h-fit flex flex-col gap-0.5 justify-start items-start"
           >
-            <div
+            <span
               data-pencil-name="Label"
-              class="text-[15px]/[normal] box-border text-[#F5F6EF] font-['Instrument_Sans',system-ui,sans-serif] font-semibold text-left whitespace-nowrap"
+              class="text-[15px]/[normal] box-border text-[#F5F6EF] font-['Instrument_Sans',system-ui,sans-serif] font-semibold text-left whitespace-nowrap transition-colors duration-300 group-hover:text-[#c7f14b]"
             >
               Cotiza ahora
-            </div>
+            </span>
           </div>
-        </div>
+        </a>
         <div
           data-pencil-name="Mail Row"
-          class="box-border w-fit h-fit shrink-0 flex flex-row gap-[8px] justify-start items-center"
+          class="box-border w-fit h-fit shrink-0 flex flex-row gap-2 justify-start items-center"
         >
-          <Mail class="box-border w-[14px] shrink-0 h-[14px] overflow-visible text-[#0d0f0b]" />
+          <Mail class="box-border w-3.5 shrink-0 h-3.5 overflow-visible text-[#0d0f0b]" />
           <div
             data-pencil-name="Mail"
             class="text-[11px]/[normal] sm:text-[13px]/[normal] box-border text-[#0D0F0B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.4px] sm:tracking-[0.8px] text-left whitespace-nowrap"
