@@ -56,7 +56,7 @@ const projects: Project[] = [
 <div id="projects-track" class="swiper mySwiper w-full">
   <div class="swiper-wrapper">
     {projects.map((project) => (
-      <div class="swiper-slide min-w-0 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start motion-safe:transition-transform motion-safe:duration-300 motion-safe:ease-out motion-safe:hover:-translate-y-1">
+      <div class="swiper-slide project-slide min-w-0 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start">
         <div
           data-pencil-name="Cover"
           class="relative box-border w-full aspect-3/2 min-h-50 shrink-0 flex flex-col gap-0 p-2 justify-between items-start overflow-hidden bg-[#0B0D09]"
@@ -64,7 +64,7 @@ const projects: Project[] = [
           <img
             src={project.image}
             alt={project.title}
-            class="absolute inset-0 w-full h-full object-cover opacity-60"
+            class="project-image absolute inset-0 w-full h-full object-cover opacity-60"
           />
           <div class="relative z-10 w-full h-full flex flex-col justify-between">
             <div
@@ -111,6 +111,7 @@ const projects: Project[] = [
 
   const swiper = new Swiper(".mySwiper", {
     modules: [Navigation],
+    speed: 550,
     slidesPerView: 1.05,
     spaceBetween: 16,
     loop: true,
@@ -161,6 +162,23 @@ const projects: Project[] = [
     text-align: left;
   }
 
+  .project-slide {
+    transition: transform 550ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .project-image {
+    transition: transform 750ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  @media (hover: hover) and (prefers-reduced-motion: no-preference) {
+    .project-slide:hover {
+      transform: translateY(-4px);
+    }
+
+    .project-slide:hover .project-image {
+      transform: scale(1.025);
+    }
+  }
   :global(.swiper-button-next),
   :global(.swiper-button-prev) {
     color: #111;

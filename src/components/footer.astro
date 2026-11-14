@@ -87,7 +87,7 @@ const footerData = {
             {column.links.map((link) => (
               <div
                 data-pencil-name={`Link ${link}`}
-                class="text-[14px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left whitespace-normal wrap-break-words"
+                class="text-[14px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left whitespace-normal wrap-break-words cursor-pointer hover:underline"
               >
                 {link}
               </div>
@@ -105,17 +105,17 @@ const footerData = {
       >
         <div
           data-pencil-name="Copy"
-          class="text-[9px]/[normal] sm:text-2.5/[normal] box-border text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap"
+          class="text-[11px]/[normal] sm:text-2.5/[normal] box-border text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap"
         >
           {footerData.copyright}
         </div>
 
         <div
           data-pencil-name="Note"
-          class="text-[9px]/[normal] sm:text-2.5/[normal] box-border w-full sm:w-fit text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap flex gap-x-2 gap-y-1 flex-wrap"
+          class="text-[11px]/[normal] sm:text-2.5/[normal] box-border w-full sm:w-fit text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap flex gap-x-2 gap-y-1 flex-wrap"
         >
           {footerData.legalLinks.map((legal) => (
-            <p>{legal}</p>
+            <p class="hover:underline cursor-pointer">{legal}</p>
           ))}
         </div>
       </div>
