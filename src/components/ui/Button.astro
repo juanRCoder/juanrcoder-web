@@ -1,0 +1,52 @@
+---
+interface Props {
+  label?: string;
+  href?: string;
+  type?: "button" | "submit" | "reset";
+  target?: "_blank" | "_self" | "_parent" | "_top";
+  rel?: string;
+  class?: string;
+  ariaLabel?: string;
+  disabled?: boolean;
+}
+
+const {
+  label,
+  href,
+  type = "button",
+  target,
+  rel,
+  class: className = "",
+  ariaLabel,
+  disabled = false,
+} = Astro.props;
+
+const isLink = Boolean(href);
+const Tag = isLink ? "a" : "button";
+
+const baseClass =
+  "relative cursor-pointer py-2 px-8 text-center font-barlow inline-flex justify-center text-base transition-[transform,translate,background-color,border-color,color,box-shadow] duration-300 ease-in-out group outline-offset-4 focus:outline-2 focus:outline-offset-4 overflow-hidden rounded-sm";
+
+const finalClass = `${baseClass} ${className}`.trim();
+---
+
+<Tag
+  class={finalClass}
+  href={href}
+  type={isLink ? undefined : type}
+  target={target}
+  rel={rel}
+  aria-label={ariaLabel}
+  disabled={isLink ? undefined : disabled}
+>
+  <span class="relative z-20">{label ?? <slot />}</span>
+
+  <!-- Brillo -->
+  <span class="absolute -left-full top-[-50%] h-[200%] w-[45%] rotate-30 bg-linear-to-r from-transparent via-white/40 to-transparent z-10 blur-md group-hover:left-[150%] transition-all duration-500 ease-out"></span>
+
+  <!-- Esquinas -->
+  <span class="w-1/2 absolute h-[20%] top-0 left-0"></span>
+  <span class="w-1/2 absolute group-hover:h-[90%] h-[60%] top-0 right-0 transition-all duration-300"></span>
+  <span class="w-1/2 absolute h-[60%] group-hover:h-[90%] left-0 bottom-0 transition-all duration-300"></span>
+  <span class="w-1/2 absolute h-[20%] right-0 bottom-0"></span>
+</Tag>

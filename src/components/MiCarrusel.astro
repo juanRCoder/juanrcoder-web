@@ -53,7 +53,12 @@ const projects: Project[] = [
 ];
 ---
 
-<div id="projects-track" class="swiper mySwiper w-full">
+<div
+  id="projects-track"
+  data-aos="fade-up"
+  data-aos-delay="300"
+  class="swiper mySwiper w-full"
+>
   <div class="swiper-wrapper">
     {projects.map((project) => (
       <div class="swiper-slide project-slide min-w-0 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start">

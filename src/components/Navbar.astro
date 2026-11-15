@@ -1,5 +1,6 @@
 ---
-import { Menu } from "@lucide/astro";
+import { Menu, X } from "@lucide/astro";
+import Button from "./ui/Button.astro";
 ---
 
 <header
@@ -44,15 +45,13 @@ import { Menu } from "@lucide/astro";
         Contacto
       </a>
     </div>
-    <a
-      href="#contacto"
-      class="hidden md:flex items-center justify-center px-4.5 py-2.5 rounded-[40px] border border-[#F5F6EF]/50 bg-transparent text-[#F5F6EF] cursor-pointer transition-all duration-300 ease-out group hover:bg-white/10 hover:border-[#F5F6EF] hover:backdrop-blur-md hover:shadow-[0_0_15px_rgba(245,246,239,0.2)]"
-    >
-      <span class="text-xs text-[#F5F6EF] font-['Geist_Mono',system-ui,sans-serif] tracking-[1px] whitespace-nowrap transition-transform duration-300 group-hover:translate-x-0.5">
-        Hablemos ↗
-      </span>
-    </a>
-
+    <Button
+      label="Hablemos ↗"
+      target="_blank"
+      href="https://wa.me/956402456"
+      aria-label="Cotizar por WhatsApp"
+      class="hidden! md:flex! bg-transparent hover:bg-white/10 hover:shadow-[0_0_15px_rgba(245,246,239,0.2)] text-white hover:-translate-y-px gap-2 font-['Instrument_Sans',system-ui,sans-serif] border border-[#F5F6EF]/50 px-3.5 py-2.5"
+    />
     <!-- Icono Menú Hamburguesa (Visible solo en móvil) -->
     <button
       type="button"
@@ -62,7 +61,8 @@ import { Menu } from "@lucide/astro";
       aria-expanded="false"
       aria-controls="mobile-navigation"
     >
-      <Menu class="w-7 h-7" />
+      <Menu class="w-7 h-7" data-icon-open />
+      <X class="w-7 h-7" data-icon-close aria-hidden="true" />
     </button>
   </div>
   <nav
@@ -92,6 +92,13 @@ import { Menu } from "@lucide/astro";
       >
         Contacto
       </a>
+      <a
+        target="_blank"
+        href="https://wa.me/956402456"
+        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
+      >
+        Hablemos
+      </a>
     </div>
   </nav>
 </header>
@@ -112,9 +119,7 @@ import { Menu } from "@lucide/astro";
       );
     };
 
-    const closeMenu = () => {
-      setMenuOpen(false);
-    };
+    const closeMenu = () => setMenuOpen(false);
 
     menuButton.addEventListener("click", () => {
       const isExpanded = menuButton.getAttribute("aria-expanded") === "true";
@@ -125,6 +130,16 @@ import { Menu } from "@lucide/astro";
       link.addEventListener("click", closeMenu);
     });
 
+    // Click fuera → cerrar
+    document.addEventListener("click", (event) => {
+      if (mobileMenu.dataset.open !== "true") return;
+      const target = event.target as Node;
+      if (mobileMenu.contains(target)) return;
+      if (menuButton.contains(target)) return;
+      closeMenu();
+    });
+
+    // Esc → cerrar y devolver foco
     document.addEventListener("keydown", (event) => {
       if (event.key !== "Escape" || mobileMenu.dataset.open !== "true") return;
       closeMenu();
@@ -150,6 +165,16 @@ import { Menu } from "@lucide/astro";
     transform: translateY(0);
     visibility: visible;
     pointer-events: auto;
+  }
+
+  [data-menu-toggle] [data-icon-close] {
+    display: none;
+  }
+  [data-menu-toggle][aria-expanded="true"] [data-icon-open] {
+    display: none;
+  }
+  [data-menu-toggle][aria-expanded="true"] [data-icon-close] {
+    display: block;
   }
 
   @media (prefers-reduced-motion: reduce) {

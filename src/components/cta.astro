@@ -1,11 +1,12 @@
 ---
-import { Mail, MessageCircle } from "@lucide/astro";
+import { Mail } from "@lucide/astro";
+import Button from "./ui/Button.astro";
 ---
 
 <div
   id="contacto"
   data-pencil-name="Call to Action"
-  class="bg-[#C7F14B] w-full"
+  class="bg-[#ddff75] w-full"
 >
   <div
     data-pencil-name="CTA"
@@ -40,30 +41,13 @@ import { Mail, MessageCircle } from "@lucide/astro";
         data-pencil-name="Buttons"
         class="box-border w-full sm:w-fit shrink-0 h-fit flex flex-col gap-4.5 justify-start items-stretch sm:items-end"
       >
-        <a
-          href="https://wa.me/956402456"
+        <Button
+          label="Cotiza ahora"
           target="_blank"
-          rel="noopener noreferrer"
           aria-label="Cotizar por WhatsApp"
-          data-pencil-name="WhatsApp CTA"
-          class="group cursor-pointer box-border w-full sm:w-fit h-fit shrink-0 flex flex-row gap-3.5 p-[16px_26px] justify-start items-center bg-[#0D0F0B]
-          transition-all duration-300 ease-out
-          hover:-translate-y-1 hover:bg-[#151713] hover:shadow-[0_8px_25px_-8px_rgba(199,241,75,0.4)]"
-        >
-          <MessageCircle class="box-border w-4 shrink-0 h-4 overflow-visible text-[#c7f14b] transition-transform duration-300 group-hover:scale-125 group-hover:-rotate-12" />
-
-          <div
-            data-pencil-name="WA Text"
-            class="box-border w-fit shrink-0 h-fit flex flex-col gap-0.5 justify-start items-start"
-          >
-            <span
-              data-pencil-name="Label"
-              class="text-[15px]/[normal] box-border text-[#F5F6EF] font-['Instrument_Sans',system-ui,sans-serif] font-semibold text-left whitespace-nowrap transition-colors duration-300 group-hover:text-[#c7f14b]"
-            >
-              Cotiza ahora
-            </span>
-          </div>
-        </a>
+          href="https://wa.me/956402456"
+          class="bg-black text-white hover:-translate-y-px px-10 py-3"
+        />
         <div
           data-pencil-name="Mail Row"
           class="box-border w-fit h-fit shrink-0 flex flex-row gap-2 justify-start items-center"

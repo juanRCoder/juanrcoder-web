@@ -21,9 +21,9 @@ const solutions = [
       textMain: "text-[#F5F6EF]",
       textMuted: "text-[#A7AC9F]",
       featureBorder: "border-[#25291F]",
-      bullet: "bg-[#C7F14B]",
+      bullet: "bg-[#ddff75]",
       progressTrack: "bg-[#25291F]",
-      progressBar: "bg-[#C7F14B]",
+      progressBar: "bg-[#ddff75]",
     },
   },
   {
@@ -41,8 +41,8 @@ const solutions = [
     timelineValue: "1 – 14 DÍAS aprox",
     progressWidth: "55%",
     theme: {
-      bg: "bg-[#C7F14B]",
-      border: "border-[#C7F14B]",
+      bg: "bg-[#ddff75]",
+      border: "border-[#ddff75]",
       textMain: "text-[#0D0F0B]",
       textMuted: "text-[#3A4712]",
       featureBorder: "border-[#AFD93F]",
@@ -112,87 +112,83 @@ const solutions = [
     data-pencil-name="Cards"
     class="box-border w-full h-fit xl:h-133.5 shrink-0 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5 items-stretch"
   >
-    {solutions.map((solution) => (
+    {solutions.map((solution, index) => (
       <div
-        data-pencil-name={`Card ${solution.title.join(" ")}`}
-        class={`group box-border w-full min-h-133.5 xl:h-full flex flex-col gap-6 p-5 sm:p-6 xl:p-6.5 justify-between items-start overflow-hidden border ${solution.theme.bg} ${solution.theme.border} 
-        transition-all duration-300 ease-out cursor-default 
-        hover:-translate-y-2 hover:shadow-2xl hover:scale-[1.02]`}
+        data-aos="fade-up"
+        data-aos-delay={index * 100}
+        class="w-full h-full"
       >
-        <!-- Top (Número, Categoría, Título, Descripción) -->
         <div
-          data-aos="fade-up"
-          class="box-border w-full h-fit shrink-0 flex flex-col gap-4.5 justify-start items-start"
+          data-pencil-name={`Card ${solution.title.join(" ")}`}
+          class={`group box-border w-full min-h-133.5 xl:h-full flex flex-col gap-6 p-5 sm:p-6 xl:p-6.5 justify-between items-start overflow-hidden border ${solution.theme.bg} ${solution.theme.border} cursor-pointer transition-transform duration-300 ease-out hover:-translate-y-2`}
         >
-          <div class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center">
-            <div
-              class={`text-[11px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left ${solution.theme.textMuted}`}
-            >
-              {solution.number}
+          <div class="box-border w-full h-fit shrink-0 flex flex-col gap-4.5 justify-start items-start">
+            <div class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center">
+              <div
+                class={`text-[11px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left ${solution.theme.textMuted}`}
+              >
+                {solution.number}
+              </div>
+              <p
+                class={`text-[9px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left ${solution.theme.textMuted}`}
+              >
+                {solution.category}
+              </p>
             </div>
+
+            <div class="box-border w-full h-fit shrink-0 flex flex-col gap-0 justify-start items-start">
+              {solution.title.map((line) => (
+                <div
+                  class={`text-[42px]/[38px] sm:text-[48px]/[42px] xl:text-[52px]/[44px] box-border w-full font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left ${solution.theme.textMain}`}
+                >
+                  {line}
+                </div>
+              ))}
+            </div>
+
             <div
-              class={`text-[9px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left ${solution.theme.textMuted}`}
+              class={`text-[14px]/[22px] box-border w-full font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left ${solution.theme.textMuted}`}
             >
-              {solution.category}
+              {solution.description}
             </div>
           </div>
-
           <div class="box-border w-full h-fit shrink-0 flex flex-col gap-0 justify-start items-start">
-            {solution.title.map((line) => (
+            {solution.features.map((feature) => (
               <div
-                class={`text-[42px]/[38px] sm:text-[48px]/[42px] xl:text-[52px]/[44px] box-border w-full font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left ${solution.theme.textMain}`}
+                class={`box-border w-full h-fit shrink-0 flex flex-row gap-2.5 p-[11px_0px] justify-start items-center border-t ${solution.theme.featureBorder}`}
               >
-                {line}
+                <div
+                  class={`box-border w-1.5 shrink-0 h-1.5 ${solution.theme.bullet}`}
+                ></div>
+                <div
+                  class={`text-[13.5px]/[18px] box-border flex-[1_1_0] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left ${solution.theme.textMain}`}
+                >
+                  {feature}
+                </div>
               </div>
             ))}
           </div>
-
-          <div
-            class={`text-[14px]/[22px] box-border w-full font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left ${solution.theme.textMuted}`}
-          >
-            {solution.description}
-          </div>
-        </div>
-
-        <!-- Features (Lista de características) -->
-        <div class="box-border w-full h-fit shrink-0 flex flex-col gap-0 justify-start items-start">
-          {solution.features.map((feature) => (
-            <div
-              class={`box-border w-full h-fit shrink-0 flex flex-row gap-2.5 p-[11px_0px] justify-start items-center border-t ${solution.theme.featureBorder}`}
-            >
+          <div class="box-border w-full h-fit shrink-0 flex flex-col gap-2.25 justify-start items-start">
+            <div class="box-border w-full h-fit shrink-0 flex flex-row flex-wrap gap-x-2 gap-y-1 justify-between items-start">
               <div
-                class={`box-border w-1.5 shrink-0 h-1.5 ${solution.theme.bullet}`}
-              ></div>
-              <div
-                class={`text-[13.5px]/[18px] box-border flex-[1_1_0] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left ${solution.theme.textMain}`}
+                class={`text-[9.5px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left  ${solution.theme.textMuted}`}
               >
-                {feature}
+                PLAZO DE ENTREGA
+              </div>
+              <div
+                class={`text-[13px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-medium tracking-[0.8px] text-left ${solution.theme.textMain}`}
+              >
+                {solution.timelineValue}
               </div>
             </div>
-          ))}
-        </div>
-
-        <!-- Timeline (Plazo y Barra de progreso) -->
-        <div class="box-border w-full h-fit shrink-0 flex flex-col gap-2.25 justify-start items-start">
-          <div class="box-border w-full h-fit shrink-0 flex flex-row flex-wrap gap-x-2 gap-y-1 justify-between items-start">
             <div
-              class={`text-[9.5px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left  ${solution.theme.textMuted}`}
+              class={`box-border w-full h-0.75 shrink-0 flex flex-row gap-0 justify-start items-start overflow-hidden ${solution.theme.progressTrack}`}
             >
-              PLAZO DE ENTREGA
+              <div
+                class={`box-border shrink-0 h-full ${solution.theme.progressBar}`}
+                style={`width: ${solution.progressWidth}`}
+              ></div>
             </div>
-            <div
-              class={`text-[13px]/[normal] box-border font-['Geist_Mono',system-ui,sans-serif] font-medium tracking-[0.8px] text-left ${solution.theme.textMain}`}
-            >
-              {solution.timelineValue}
-            </div>
-          </div>
-          <div
-            class={`box-border w-full h-0.75 shrink-0 flex flex-row gap-0 justify-start items-start overflow-hidden ${solution.theme.progressTrack}`}
-          >
-            <div
-              class={`box-border shrink-0 h-full ${solution.theme.progressBar}`}
-              style={`width: ${solution.progressWidth}`}
-            ></div>
           </div>
         </div>
       </div>
