@@ -1,13 +1,25 @@
 ---
+import SEO from "../components/SEO.astro";
 import Hero from "../components/hero.astro";
 import Services from "../components/services.astro";
-import Projects from "../components/projects.astro";
+// import Projects from "../components/projects.astro";
 import HowWorks from "../components/howWorks.astro";
 import Cta from "../components/cta.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
 
 const title = "juanra | software";
+const description =
+  "Páginas web profesionales, catálogos digitales y sistemas de gestión a medida para negocios. Hablas directo conmigo, sin intermediarios.";
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "ProfessionalService",
+  name: "juanra",
+  description:
+    "Desarrollo de páginas web, catálogos digitales y sistemas de gestión",
+  url: Astro.site?.href,
+  areaServed: "Lima, Perú",
+};
 ---
 
 <!doctype html>
@@ -16,20 +28,20 @@ const title = "juanra | software";
     <meta charset="UTF-8" />
     <link rel="icon" href="/logo1.png" type="image/png" />
     <meta name="viewport" content="width=device-width" />
-    <meta name="description" content="Sitio personal de juanrcoder." />
-    <title>{title}</title>
+    <SEO title={title} description={description} />
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
   <body class="box-border h-fit flex flex-col gap-0 justify-start items-start bg-[#EFF1EA] mx-auto overflow-x-hidden">
     <Hero />
     <div
       data-pencil-name="Interlude"
-      class="box-border w-full max-w-360 mx-auto h-fit shrink-0 flex flex-col gap-6 p-[80px_12px] md:p-[80px_64px] justify-start items-start bg-[#EFF1EA] [border-width:1px_0px_0px_0px] border-solid border-[#D2D6C8]"
+      class="w-full max-w-360 mx-auto flex flex-col gap-6 p-[80px_12px] md:p-[80px_64px] bg-[#EFF1EA] border-t border-[#D2D6C8]"
     >
       <div
         data-aos="fade-up"
         data-aos-delay={150}
         data-pencil-name="Eyebrow"
-        class="text-[11px]/[normal] box-border text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left whitespace-nowrap"
+        class="text-[11px]/[normal] text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px] whitespace-nowrap"
       >
         LA VERSIÓN CORTA
       </div>
@@ -37,31 +49,28 @@ const title = "juanra | software";
         data-pencil-name="Quote"
         data-aos="fade-up"
         data-aos-delay={300}
-        class="text-4xl md:text-[58px] box-border text-[#0D0F0B] tracking-tighter font-['Big_Shoulders',system-ui,sans-serif] font-bold text-left"
+        class="text-4xl md:text-[58px] text-[#0D0F0B] tracking-tighter font-['Big_Shoulders',system-ui,sans-serif] font-bold"
       >
         LA MAYORÍA DE LO QUE NECESITAS YA EXISTE. <br class="hidden lg:block" />{" "}
         SIMPLEMENTE NO FUE DISEÑADO PARA TU NEGOCIO.
       </h3>
       <div
         data-pencil-nameF="Quote Foot"
-        class="box-border w-fit h-fit shrink-0 flex flex-row gap-3 p-[8px_0px_0px_0px] justify-start items-center"
+        class="w-fit flex gap-3 pt-2 items-center"
       >
-        <div
-          data-pencil-name="Rule"
-          class="box-border w-14 shrink-0 h-0.5 bg-[#0D0F0B]"
-        />
+        <div data-pencil-name="Rule" class="w-14 h-0.5 bg-[#0D0F0B]" />
         <p
           data-pencil-name="Note"
           data-aos="fade-up"
           data-aos-delay={450}
-          class="aos-item text-[15px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+          class="aos-item text-[15px]/[normal] text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif]"
         >
           Sin intermediarios: hablás conmigo.
         </p>
       </div>
     </div>
     <Services />
-    <Projects />
+    <!-- <Projects /> -->
     <HowWorks />
     <Cta />
     <Footer />

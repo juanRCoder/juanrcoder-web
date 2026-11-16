@@ -3,43 +3,45 @@ import { Mail } from "@lucide/astro";
 import Button from "./ui/Button.astro";
 ---
 
-<div
+<section
   id="contacto"
+  aria-labelledby="contacto-title"
   data-pencil-name="Call to Action"
   class="bg-[#ddff75] w-full"
 >
   <div
     data-pencil-name="CTA"
-    class="max-w-360 mx-auto box-border w-full h-fit shrink-0 flex flex-col gap-6 sm:gap-7 px-5 py-14 sm:px-8 sm:py-16 xl:p-[75px_64px] justify-start items-start"
+    class="max-w-360 mx-auto w-full flex flex-col gap-6 sm:gap-7 px-5 py-14 sm:px-8 sm:py-16 xl:p-[75px_64px]"
   >
-    <div
+    <p
       data-pencil-name="Eyebrow"
-      class="text-[11px]/[normal] box-border text-[#3A4712] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left"
+      class="text-[11px]/[normal] text-[#3A4712] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px]"
     >
       04 — SIGUIENTE
-    </div>
-    <div
+    </p>
+    <h2
+      id="contacto-title"
       data-pencil-name="H2"
       data-aos="fade-up"
-      class="text-[48px]/[46px] sm:text-[60px]/[58px] xl:text-[72px]/[68px] box-border w-full max-w-167 text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left"
+      class="text-[48px]/[46px] sm:text-[60px]/[58px] xl:text-[72px]/[68px] w-full max-w-167 text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold"
     >
       ¿Listo para hacer crecer tu negocio?
-    </div>
+    </h2>
     <div
       data-pencil-name="CTA Bottom"
-      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 pt-5 sm:flex-row sm:gap-8 xl:gap-12 justify-between items-start"
+      class="w-full flex flex-col gap-6 pt-5 sm:flex-row sm:gap-8 xl:gap-12 justify-between items-start"
     >
-      <div
+      <p
         data-pencil-name="Sub"
         data-aos="fade-up"
-        class="text-[17px]/[27px] box-border w-full max-w-109 sm:flex-1 text-[#2A3410] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+        class="text-[17px]/[27px] w-full max-w-109 sm:flex-1 text-[#2A3410] font-['Instrument_Sans',system-ui,sans-serif]"
       >
         Dime cuál es la tarea que más te quita el día. Buscamos la forma de
         solucionarlo.
-      </div>
+      </p>
       <div
         data-pencil-name="Buttons"
-        class="box-border w-full sm:w-fit shrink-0 h-fit flex flex-col gap-4.5 justify-start items-stretch sm:items-end"
+        class="w-full sm:w-fit flex flex-col gap-4.5 sm:items-end"
       >
         <Button
           label="Cotiza ahora"
@@ -48,19 +50,17 @@ import Button from "./ui/Button.astro";
           href="https://wa.me/956402456"
           class="bg-black text-white hover:-translate-y-px px-10 py-3"
         />
-        <div
-          data-pencil-name="Mail Row"
-          class="box-border w-fit h-fit shrink-0 flex flex-row gap-2 justify-start items-center"
-        >
-          <Mail class="box-border w-3.5 shrink-0 h-3.5 overflow-visible text-[#0d0f0b]" />
-          <div
+        <div data-pencil-name="Mail Row" class="flex gap-2 items-center">
+          <Mail aria-hidden="true" class="w-3.5 h-3.5 text-[#0d0f0b]" />
+          <a
             data-pencil-name="Mail"
-            class="text-[11px]/[normal] sm:text-[13px]/[normal] box-border text-[#0D0F0B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.4px] sm:tracking-[0.8px] text-left whitespace-nowrap"
+            href="mailto:juanra@gmail.com"
+            class="text-[11px]/[normal] sm:text-[13px]/[normal] text-[#0D0F0B] font-['Geist_Mono',system-ui,sans-serif] tracking-[0.4px] sm:tracking-[0.8px] whitespace-nowrap"
           >
             juanra@gmail.com
-          </div>
+          </a>
         </div>
       </div>
     </div>
   </div>
-</div>
+</section>

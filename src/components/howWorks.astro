@@ -20,7 +20,7 @@ const steps: Step[] = [
   {
     num: "03",
     title: "Desarrollo",
-    description: "Construyo tu proyecto rápido, seguro y responsive.", // Typo corregido
+    description: "Construyo tu proyecto rápido, seguro y responsive.",
   },
   {
     num: "04",
@@ -30,78 +30,82 @@ const steps: Step[] = [
 ];
 ---
 
-<div data-pencil-name="Cómo Funciona" class="bg-[#0B0D09] w-full">
+<section
+  aria-labelledby="como-funciona-title"
+  data-pencil-name="Cómo Funciona"
+  class="bg-[#0B0D09] w-full"
+>
   <div
     data-pencil-name="How It Works"
-    class="max-w-360 mx-auto box-border w-full h-fit shrink-0 flex flex-col gap-10 sm:gap-15 px-5 py-14 sm:px-8 sm:py-16 xl:p-[104px_64px_110px_64px] justify-start items-start"
+    class="max-w-360 mx-auto w-full flex flex-col gap-10 sm:gap-15 px-5 py-14 sm:px-8 sm:py-16 xl:p-[104px_64px_110px_64px]"
   >
-    <!-- Sección de Encabezado (Se mantiene igual) -->
-    <div
+    <header
       data-pencil-name="Head"
       data-aos="fade-up"
-      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between items-start xl:items-end"
+      class="w-full flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between xl:items-end"
     >
       <div
         data-pencil-name="Left"
-        class="box-border w-full xl:w-196.75 shrink-0 h-fit flex flex-col gap-4 xl:gap-5 justify-start items-start"
+        class="w-full xl:w-196.75 flex flex-col gap-4 xl:gap-5"
       >
-        <div
+        <p
           data-pencil-name="Eyebrow"
-          class="text-[11px]/[normal] box-border text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[2.4px] text-left whitespace-nowrap"
+          class="text-[11px]/[normal] text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px]"
         >
           03 — CÓMO FUNCIONA
-        </div>
-        <div
+        </p>
+        <h2
+          id="como-funciona-title"
           data-pencil-name="H2"
-          class="text-12/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] box-border w-full xl:w-194 text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
+          class="text-12/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] w-full xl:w-194 text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold"
         >
           PARA QUE EL SOFTWARE FUNCIONE.
-        </div>
+        </h2>
       </div>
-      <div
+      <p
         data-pencil-name="Note"
-        class="text-[15px]/[24px] box-border w-full max-w-75 xl:w-75 xl:shrink-0 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+        class="text-[15px]/[24px] w-full max-w-75 xl:w-75 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
       >
         Cuatro pasos, sin necesidad de un teatro de descubrimiento. Hablas
         directamente conmigo.
-      </div>
-    </div>
+      </p>
+    </header>
 
-    <div
+    <ol
+      role="list"
       data-pencil-name="Steps"
-      class="box-border w-full h-fit shrink-0 grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-10"
+      class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-10"
     >
       {steps.map((step, index) => (
-        <div
+        <li
           data-pencil-name={`Step ${step.num}`}
           data-aos="fade-up"
           data-aos-delay={index * 100}
-          // 1. Agregamos la clase 'group' y 'relative' al contenedor principal
-          class="group relative box-border h-fit flex flex-col gap-4 pt-6 justify-start items-start"
+          class="group relative flex flex-col gap-4 pt-6"
         >
           <div class="absolute top-0 left-0 w-full h-px bg-[#25291F]" />
           <div class="absolute top-0 left-0 w-full h-px bg-[#C7F14B] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
-          <div
+          <span
             data-pencil-name="Num"
-            class="text-[11px]/[normal] box-border text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.6px] text-left whitespace-nowrap"
+            class="text-[11px]/[normal] text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.6px]"
           >
             {step.num}
-          </div>
-          <div
+          </span>
+          <h3
             data-pencil-name="Title"
-            class="text-[36px]/[32px] box-border text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left transition-colors duration-300 group-hover:text-[#C7F14B]"
+            class="text-[36px]/[32px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold transition-colors duration-300 group-hover:text-[#C7F14B]"
           >
             {step.title}
-          </div>
-          <div
+          </h3>
+          <p
             data-pencil-name="Body"
-            class="text-[15px]/[26px] box-border w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+            class="text-[15px]/[26px] w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
           >
             {step.description}
-          </div>
-        </div>
+          </p>
+        </li>
       ))}
-    </div>
+    </ol>
   </div>
-</div>
+</section>

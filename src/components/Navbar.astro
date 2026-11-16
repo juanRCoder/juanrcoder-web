@@ -1,6 +1,12 @@
 ---
 import { Menu, X } from "@lucide/astro";
 import Button from "./ui/Button.astro";
+
+const navLinks = [
+  { href: "#servicios", label: "Servicios" },
+  // { href: "#proyectos", label: "Proyectos" },
+  { href: "#contacto", label: "Contacto" },
+] as const;
 ---
 
 <header
@@ -9,42 +15,34 @@ import Button from "./ui/Button.astro";
 >
   <div
     data-pencil-name="Nav"
-    class="box-border w-full max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 h-fit shrink-0 flex flex-row gap-0 justify-between items-center relative"
+    class="max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 flex justify-between items-center"
   >
-    <!-- Logo -->
-    <div class="box-border w-fit shrink-0 h-fit flex flex-row gap-2.5 justify-start items-center">
+    <div class="flex gap-2.5 items-center">
       <div
-        class="box-border w-9.75 shrink-0 h-11"
+        class="w-9.75 h-11"
         style="background-image: url('/logo1.png'); background-position: center; background-repeat: no-repeat; background-size: cover"
       ></div>
-      <div class="text-[18px]/[normal] box-border text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] text-left whitespace-nowrap">
+      <div class="text-[18px]/[normal] text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] whitespace-nowrap">
         juanra
         <br />
         software
       </div>
     </div>
 
-    <!-- Enlaces (Ocultos en móvil, visibles en md+) -->
-    <div class="hidden md:flex box-border w-fit shrink-0 h-fit flex-row gap-8.5 justify-start items-center">
-      <a
-        href="#servicios"
-        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
-      >
-        Servicios
-      </a>
-      <a
-        href="#proyectos"
-        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
-      >
-        Proyectos
-      </a>
-      <a
-        href="#contacto"
-        class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
-      >
-        Contacto
-      </a>
-    </div>
+    <nav
+      aria-label="Navegación principal"
+      class="hidden md:flex gap-8.5 items-center"
+    >
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="text-xs/[normal] text-[#A7AC9F] hover:text-[#F5F6EF] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
+        >
+          {label}
+        </a>
+      ))}
+    </nav>
+
     <Button
       label="Hablemos ↗"
       target="_blank"
@@ -52,7 +50,7 @@ import Button from "./ui/Button.astro";
       aria-label="Cotizar por WhatsApp"
       class="hidden! md:flex! bg-transparent hover:bg-white/10 hover:shadow-[0_0_15px_rgba(245,246,239,0.2)] text-white hover:-translate-y-px gap-2 font-['Instrument_Sans',system-ui,sans-serif] border border-[#F5F6EF]/50 px-3.5 py-2.5"
     />
-    <!-- Icono Menú Hamburguesa (Visible solo en móvil) -->
+
     <button
       type="button"
       data-menu-toggle
@@ -65,37 +63,29 @@ import Button from "./ui/Button.astro";
       <X class="w-7 h-7" data-icon-close aria-hidden="true" />
     </button>
   </div>
+
   <nav
     id="mobile-navigation"
     data-mobile-menu
     data-open="false"
     aria-hidden="true"
     aria-label="Navegación móvil"
-    class="absolute inset-x-0 top-full w-full bg-[#0B0D09]/75 backdrop-blur-md border-y border-[#F5F6EF]/15 shadow-[0_12px_32px_rgba(0,0,0,0.3)] md:hidden"
+    class="absolute inset-x-0 top-full bg-[#0B0D09]/75 backdrop-blur-md border-y border-[#F5F6EF]/15 shadow-[0_12px_32px_rgba(0,0,0,0.3)] md:hidden"
   >
     <div class="mx-auto flex w-full max-w-360 flex-col px-6 md:px-16">
+      {navLinks.map(({ href, label }) => (
+        <a
+          href={href}
+          class="px-4 py-4 text-xs text-center text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
+        >
+          {label}
+        </a>
+      ))}
       <a
-        href="#servicios"
-        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
-      >
-        Servicios
-      </a>
-      <a
-        href="#proyectos"
-        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
-      >
-        Proyectos
-      </a>
-      <a
-        href="#contacto"
-        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
-      >
-        Contacto
-      </a>
-      <a
+        href="https://wa.me/51956402456"
         target="_blank"
-        href="https://wa.me/956402456"
-        class="px-4 py-4 text-xs text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px] text-center"
+        rel="noopener noreferrer"
+        class="px-4 py-4 text-xs text-center text-[#A7AC9F] hover:text-[#C7F14B] transition-colors font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]"
       >
         Hablemos
       </a>

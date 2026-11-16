@@ -9,6 +9,7 @@
   },
   "dependencies": {
     "@astroanimate/core": "^0.1.2",
+    "@astrojs/sitemap": "^3.7.5",
     "@lucide/astro": "^1.72.0",
     "@nitlix-hq/aos": "^1.0.2",
     "aos": "^2.3.4",

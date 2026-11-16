@@ -1,5 +1,4 @@
 ---
-// 1. Definimos los datos del Footer en un objeto
 const footerData = {
   tagline:
     "Desarrollador de Software especializado en aplicaciones web, dashboards, sistemas logísticos personalizados. Experiencia con NestJS, React, SQL y arquitecturas escalables",
@@ -27,100 +26,102 @@ const footerData = {
 };
 ---
 
-<div data-pencil-name="Footera" class="bg-[#0B0D09] w-full">
-  <div
-    data-pencil-name="Footer"
-    class="box-border w-full h-fit shrink-0 flex flex-col gap-10 sm:gap-14 px-5 pt-14 pb-8 sm:px-8 sm:py-16 xl:p-[72px_64px_40px_64px] justify-start items-start"
-  >
+<footer data-pencil-name="Footera" class="bg-[#0B0D09] w-full">
+  <div class="w-full flex flex-col gap-10 sm:gap-14 px-5 pt-14 pb-8 sm:px-8 sm:py-16 xl:p-[72px_64px_40px_64px]">
     <div
       data-pencil-name="Footer Top"
-      class="box-border max-w-360 mx-auto w-full h-fit shrink-0 flex flex-col gap-10 xl:flex-row xl:gap-16 justify-between items-start"
+      class="max-w-360 mx-auto w-full flex flex-col gap-10 xl:flex-row xl:gap-16 justify-between items-start"
     >
-      <!-- Columna de la Marca -->
       <div
         data-pencil-name="Brand"
-        class="box-border w-full xl:flex-1 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start"
+        class="w-full xl:flex-1 flex flex-col gap-3.5"
       >
         <div
           data-pencil-name="Wordmark"
           data-aos="fade-up"
-          class="box-border w-fit shrink-0 h-fit flex flex-row gap-2.5 justify-start items-center"
+          class="flex gap-2.5 items-center"
         >
           <div
             data-pencil-name="calogo1 1"
-            class="box-border w-9.75 shrink-0 h-11"
+            class="w-9.75 h-11"
             style="background-image: url('/logo1.png'); background-position: center; background-repeat: no-repeat; background-size: cover"
           ></div>
           <div
             data-pencil-name="Logo Type"
-            class="text-[18px]/[normal] box-border text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] text-left"
+            class="text-[18px]/[normal] text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] whitespace-nowrap"
           >
             juanra
             <br />
             software
           </div>
         </div>
-        <div
+        <p
           data-pencil-name="Tagline"
           data-aos="fade-up"
-          class="text-[15px]/[25px] box-border w-full max-w-100.25 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left"
+          class="text-[15px]/[25px] w-full max-w-100.25 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
         >
           {footerData.tagline}
-        </div>
+        </p>
       </div>
-
-      <!-- Columnas de Enlaces -->
       <div
         data-pencil-name="Footer Columns"
         data-aos="fade-up"
-        class="box-border w-full xl:flex-1 shrink-0 h-fit grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-12 xl:flex xl:gap-18 justify-end items-start"
+        class="w-full xl:flex-1 grid grid-cols-2 gap-x-6 gap-y-8 sm:gap-x-12 xl:flex xl:gap-18 justify-end items-start"
       >
         {footerData.columns.map((column) => (
-          <div
+          <nav
+            aria-labelledby={`footer-col-${column.title}`}
             data-pencil-name={`Col ${column.title.toUpperCase()}`}
-            class="box-border w-fit min-w-0 shrink-0 h-fit flex flex-col gap-3 justify-start items-start"
+            class="w-fit min-w-0 flex flex-col gap-3"
           >
-            <div
+            <h3
+              id={`footer-col-${column.title}`}
               data-pencil-name="Title"
-              class="text-2.5/[normal] box-border text-[#F5F6EF] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.8px] text-left"
+              class="text-2.5/[normal] text-[#F5F6EF] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.8px]"
             >
               {column.title}
-            </div>
-            {column.links.map((link) => (
-              <div
-                data-pencil-name={`Link ${link}`}
-                class="text-[14px]/[normal] box-border text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] font-normal text-left whitespace-normal wrap-break-words cursor-pointer hover:underline"
-              >
-                {link}
-              </div>
-            ))}
-          </div>
+            </h3>
+            <ul class="flex flex-col gap-3">
+              {column.links.map((link) => (
+                <li>
+                  <a
+                    href="#"
+                    data-pencil-name={`Link ${link}`}
+                    class="text-[14px]/[normal] text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] hover:underline wrap-break-words"
+                  >
+                    {link}
+                  </a>
+                </li>
+              ))}
+            </ul>
+          </nav>
         ))}
       </div>
     </div>
-
-    <!-- Footer Bottom (Enlaces Legales y Copyright) -->
-    <div class="w-full [border-width:1px_0px_0px_0px] border-solid border-[#25291F]">
+    <div class="w-full border-t border-[#25291F]">
       <div
         data-pencil-name="Footer Bottom"
-        class="box-border max-w-360 mx-auto w-full h-fit shrink-0 flex flex-col gap-5 pt-5 sm:flex-row sm:gap-0 sm:justify-between sm:items-start"
+        class="max-w-360 mx-auto w-full flex flex-col gap-y-5 pt-5 sm:flex-row sm:justify-between sm:items-start"
       >
-        <div
+        <p
           data-pencil-name="Copy"
-          class="text-[11px]/[normal] sm:text-2.5/[normal] box-border text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap"
+          class="text-[11px]/[normal] sm:text-2.5/[normal] text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] tracking-[0.8px] sm:tracking-[1.2px] whitespace-nowrap"
         >
           {footerData.copyright}
-        </div>
+        </p>
 
-        <div
-          data-pencil-name="Note"
-          class="text-[11px]/[normal] sm:text-2.5/[normal] box-border w-full sm:w-fit text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.8px] sm:tracking-[1.2px] text-left whitespace-nowrap flex gap-x-2 gap-y-1 flex-wrap"
-        >
-          {footerData.legalLinks.map((legal) => (
-            <p class="hover:underline cursor-pointer">{legal}</p>
-          ))}
-        </div>
+        <nav data-pencil-name="Note" aria-label="Enlaces legales">
+          <ul class="flex flex-wrap gap-x-2 gap-y-1">
+            {footerData.legalLinks.map((legal) => (
+              <li class="text-[11px]/[normal] sm:text-2.5/[normal] text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] tracking-[0.8px] sm:tracking-[1.2px] whitespace-nowrap">
+                <a href="#" class="hover:underline">
+                  {legal}
+                </a>
+              </li>
+            ))}
+          </ul>
+        </nav>
       </div>
     </div>
   </div>
-</div>
+</footer>

@@ -3,52 +3,46 @@ import { ArrowLeft, ArrowRight } from "@lucide/astro";
 import MiCarrusel from "./MiCarrusel.astro";
 ---
 
-<div
+<section
   id="proyectos"
+  aria-labelledby="proyectos-title"
   data-pencil-name="Proyectos Realizados"
   class="bg-[#FFFFFF] w-full"
 >
-  <div class="max-w-360 mx-auto box-border w-full h-fit shrink-0 flex flex-col gap-10 sm:gap-11 px-5 py-14 sm:px-8 sm:py-16 xl:px-16 xl:py-22 justify-start items-start">
-    <div
+  <div class="max-w-360 mx-auto w-full flex flex-col gap-10 sm:gap-11 px-5 py-14 sm:px-8 sm:py-16 xl:px-16 xl:py-22">
+    <header
       data-pencil-name="Head"
-      class="box-border w-full h-fit shrink-0 flex flex-col gap-6 sm:gap-7.5 justify-start items-start"
+      class="w-full flex flex-col gap-6 sm:gap-7.5"
     >
       <div
         data-pencil-name="Eyebrow Row"
-        class="box-border w-full h-fit shrink-0 flex flex-row gap-0 justify-between items-center"
+        class="w-full flex justify-between items-center"
       >
-        <div
+        <p
           data-pencil-name="Eyebrow"
-          class="text-[9px]/[normal] sm:text-[11px]/[normal] box-border text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] sm:tracking-[2.4px] text-left whitespace-nowrap"
+          class="text-[9px]/[normal] sm:text-[11px]/[normal] text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.4px] sm:tracking-[2.4px] whitespace-nowrap"
         >
           02 — PROYECTOS REALIZADOS
-        </div>
+        </p>
       </div>
       <div
         data-pencil-name="Head Main"
-        class="box-border w-full h-fit shrink-0 flex flex-col gap-5 sm:flex-row sm:gap-6 xl:gap-12 justify-between items-start sm:items-end"
+        class="w-full flex flex-col gap-5 sm:flex-row sm:gap-6 xl:gap-12 justify-between items-start sm:items-end"
       >
-        <div
-          data-pencil-name="Title Wrap"
+        <h3
+          id="proyectos-title"
+          data-pencil-name="Title"
           data-aos="fade-up"
-          class="box-border w-full sm:w-fit min-w-0 shrink-0 h-fit flex flex-col gap-2 sm:gap-4.5 justify-start items-start"
+          class="w-full sm:w-fit flex flex-col gap-2 sm:gap-4.5 text-[48px]/[44px] sm:text-[56px]/[50px] xl:text-[64px]/[55px] text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold"
         >
-          <div
-            data-pencil-name="Title 1"
-            class="text-[48px]/[44px] sm:text-[56px]/[50px] xl:text-[64px]/[55px] box-border text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
-          >
-            TRABAJOS
-          </div>
-          <div
-            data-pencil-name="Title 2"
-            class="text-[48px]/[44px] sm:text-[56px]/[50px] xl:text-[64px]/[55px] box-border text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold text-left whitespace-normal"
-          >
-            REALIZADOS
-          </div>
-        </div>
+          <span class="block">TRABAJOS</span>
+          <span class="block">REALIZADOS</span>
+        </h3>
         <div
+          role="group"
+          aria-label="Controles del carrusel de proyectos"
           data-pencil-name="Slider Nav"
-          class="box-border w-fit shrink-0 h-fit flex flex-row gap-2 justify-start items-center self-end sm:self-auto"
+          class="flex gap-2 items-center self-end sm:self-auto"
         >
           <button
             type="button"
@@ -56,9 +50,12 @@ import MiCarrusel from "./MiCarrusel.astro";
             aria-label="Proyecto anterior"
             aria-controls="projects-track"
             data-pencil-name="Prev"
-            class="box-border w-11 shrink-0 h-11 flex flex-col gap-0 justify-center items-center [border:1px_solid_#D2D6C8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D0F0B] cursor-pointer"
+            class="w-11 h-11 flex items-center justify-center border border-[#D2D6C8] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D0F0B] cursor-pointer"
           >
-            <ArrowLeft class="box-border w-4.25 h-4.25 shrink-0 overflow-visible text-[#0D0F0B]" />
+            <ArrowLeft
+              aria-hidden="true"
+              class="w-4.25 h-4.25 text-[#0D0F0B]"
+            />
           </button>
           <button
             type="button"
@@ -66,14 +63,17 @@ import MiCarrusel from "./MiCarrusel.astro";
             aria-label="Siguiente proyecto"
             aria-controls="projects-track"
             data-pencil-name="Next"
-            class="box-border w-11 shrink-0 h-11 flex flex-col gap-0 justify-center items-center bg-[#0D0F0B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D0F0B] cursor-pointer"
+            class="w-11 h-11 flex items-center justify-center bg-[#0D0F0B] focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-[#0D0F0B] cursor-pointer"
           >
-            <ArrowRight class="box-border w-4.25 h-4.25 shrink-0 overflow-visible text-[#f5f6ef]" />
+            <ArrowRight
+              aria-hidden="true"
+              class="w-4.25 h-4.25 text-[#f5f6ef]"
+            />
           </button>
         </div>
       </div>
-    </div>
+    </header>
 
     <MiCarrusel />
   </div>
-</div>
+</section>
