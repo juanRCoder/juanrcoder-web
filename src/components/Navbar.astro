@@ -1,6 +1,8 @@
 ---
 import { Menu, X } from "@lucide/astro";
+import { Image } from "astro:assets";
 import Button from "./ui/Button.astro";
+import logoImage from "../assets/logo1.webp";
 
 const navLinks = [
   { href: "#servicios", label: "Servicios" },
@@ -15,11 +17,9 @@ const navLinks = [
 >
   <div class="max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 flex justify-between items-center">
     <div class="flex gap-2.5 items-center">
-      <img
-        src="/logo1.png"
+      <Image
+        src={logoImage}
         alt=""
-        width="39"
-        height="44"
         class="w-9.75 h-11 object-cover"
         decoding="async"
       />

@@ -7,6 +7,8 @@ import HowWorks from "../components/howWorks.astro";
 import Cta from "../components/cta.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
+import logoImage from "../assets/logo1.webp";
+import heroImage from "../assets/hero_image_1.webp";
 
 const title = "Páginas web y sistemas a medida en Lima | juanra software";
 const description =
@@ -22,8 +24,8 @@ const jsonLd = {
       description:
         "Desarrollo de páginas web, catálogos digitales y sistemas de gestión a medida",
       url: siteUrl,
-      logo: new URL("/logo1.png", siteUrl).href,
-      image: new URL("/hero_image_1.webp", siteUrl).href,
+      logo: new URL(logoImage.src, siteUrl).href,
+      image: new URL(heroImage.src, siteUrl).href,
       areaServed: { "@type": "City", name: "Lima" },
       address: {
         "@type": "PostalAddress",
@@ -50,8 +52,8 @@ const jsonLd = {
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0B0D09" />
-    <link rel="icon" href="/logo1.png" type="image/png" />
-    <link rel="apple-touch-icon" href="/logo1.png" />
+    <link rel="icon" href={logoImage.src} type="image/webp" />
+    <link rel="apple-touch-icon" href={logoImage.src} />
     <SEO title={title} description={description} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>
