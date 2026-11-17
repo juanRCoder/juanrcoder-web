@@ -1,4 +1,7 @@
 ---
+// DESACTIVADO TEMPORALMENTE: componente comentado hasta reactivar la sección de proyectos.
+// Para reactivarlo: quita los delimitadores de comentario y descomenta <Projects /> en src/pages/index.astro.
+/*
 import { ArrowUpRight } from "@lucide/astro";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -51,7 +54,10 @@ const projects: Project[] = [
     category: "Landing Page",
   },
 ];
+*/
 ---
+
+{/*
 
 <div
   id="projects-track"
@@ -63,7 +69,6 @@ const projects: Project[] = [
     {projects.map((project) => (
       <div class="swiper-slide project-slide min-w-0 shrink-0 h-fit flex flex-col gap-3.5 justify-start items-start">
         <div
-          data-pencil-name="Cover"
           class="relative box-border w-full aspect-3/2 min-h-50 shrink-0 flex flex-col gap-0 p-2 justify-between items-start overflow-hidden bg-[#0B0D09]"
         >
           <img
@@ -73,7 +78,6 @@ const projects: Project[] = [
           />
           <div class="relative z-10 w-full h-full flex flex-col justify-between">
             <div
-              data-pencil-name="Category"
               class="text-xs/[normal] w-fit box-border font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[1.4px] text-left whitespace-nowrap text-white bg-[#0B0D09]/50 p-1 rounded-sm"
             >
               {project.category}
@@ -81,21 +85,17 @@ const projects: Project[] = [
           </div>
         </div>
         <div
-          data-pencil-name="Info"
           class="box-border w-full h-fit shrink-0 flex flex-row gap-4 justify-between items-start pt-3"
         >
           <div
-            data-pencil-name="Info Left"
             class="box-border flex-[1_1_0] h-fit flex flex-col gap-1.25 justify-start items-start min-w-0"
           >
             <div
-              data-pencil-name="Project Name"
               class="text-[22px]/[22px] sm:text-[26px]/[26px] box-border w-full text-[#0D0F0B] font-['Big_Shoulders',system-ui,sans-serif] font-bold text-left truncate"
             >
               {project.title}
             </div>
             <div
-              data-pencil-name="Project Meta"
               class="text-xs/[normal] box-border text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] font-normal tracking-[0.6px] text-left line-clamp-3 w-full"
             >
               {project.description}
@@ -193,3 +193,4 @@ const projects: Project[] = [
     background-color: #fff;
   }
 </style>
+*/}

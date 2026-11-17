@@ -8,17 +8,39 @@ import Cta from "../components/cta.astro";
 import Footer from "../components/footer.astro";
 import "../styles/global.css";
 
-const title = "juanra | software";
+const title = "Páginas web y sistemas a medida en Lima | juanra software";
 const description =
   "Páginas web profesionales, catálogos digitales y sistemas de gestión a medida para negocios. Hablas directo conmigo, sin intermediarios.";
+const siteUrl = Astro.site!.href;
 const jsonLd = {
   "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  name: "juanra",
-  description:
-    "Desarrollo de páginas web, catálogos digitales y sistemas de gestión",
-  url: Astro.site?.href,
-  areaServed: "Lima, Perú",
+  "@graph": [
+    {
+      "@type": "ProfessionalService",
+      "@id": `${siteUrl}#business`,
+      name: "juanra software",
+      description:
+        "Desarrollo de páginas web, catálogos digitales y sistemas de gestión a medida",
+      url: siteUrl,
+      logo: new URL("/logo1.png", siteUrl).href,
+      image: new URL("/hero_image_1.webp", siteUrl).href,
+      areaServed: { "@type": "City", name: "Lima" },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lima",
+        addressCountry: "PE",
+      },
+      knowsLanguage: "es",
+    },
+    {
+      "@type": "WebSite",
+      "@id": `${siteUrl}#website`,
+      url: siteUrl,
+      name: "juanra software",
+      inLanguage: "es-PE",
+      publisher: { "@id": `${siteUrl}#business` },
+    },
+  ],
 };
 ---
 
@@ -26,8 +48,10 @@ const jsonLd = {
 <html lang="es">
   <head>
     <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#0B0D09" />
     <link rel="icon" href="/logo1.png" type="image/png" />
-    <meta name="viewport" content="width=device-width" />
+    <link rel="apple-touch-icon" href="/logo1.png" />
     <SEO title={title} description={description} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
   </head>

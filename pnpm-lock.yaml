@@ -8,9 +8,6 @@ importers:
 
   .:
     dependencies:
-      '@astroanimate/core':
-        specifier: ^0.1.2
-        version: 0.1.2(astro@5.18.2(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.68.2)(typescript@5.9.3)(yaml@2.9.1))
       '@astrojs/sitemap':
         specifier: ^3.7.5
         version: 3.7.5
@@ -36,9 +33,6 @@ importers:
       '@tailwindcss/vite':
         specifier: ^4.3.5
         version: 4.3.5(vite@6.4.6(jiti@2.7.0)(lightningcss@1.33.0)(yaml@2.9.1))
-      '@types/aos':
-        specifier: ^3.0.8
-        version: 3.0.8
       prettier:
         specifier: ^3.10.1
         version: 3.10.1
@@ -53,11 +47,6 @@ importers:
         version: 5.9.3
 
 packages:
-
-  '@astroanimate/core@0.1.2':
-    resolution: {integrity: sha512-cu1ytAp8ZPelcxnZlRavNfNrLn60DoQSUBqUzWLJr9b5n5gP/prNNb5MuH7LWK+Y5i2SZF31ptjfJroTy6il/A==}
-    peerDependencies:
-      astro: ^4.0.0 || ^5.0.0 || ^6.0.0
 
   '@astrojs/astro2tsx@0.1.4':
     resolution: {integrity: sha512-5dJqY4i1AlXxcsSFHkaegnrgdVs9J4U93y/YF0xmvmSOcNYVQnf4db3IhvqHZ5v8biLPlPlFmlYsqHj0c4/ZSA==}
@@ -1005,9 +994,6 @@ packages:
 
   '@tybys/wasm-util@0.10.4':
     resolution: {integrity: sha512-W3c4gRigFS0T/Ma4qIYF3GDAc5AQdHb1yL5znJT1Zv1YaD9Kitx656wBjvr19qbiosmZT8lWDM5BEMynUqX65A==}
-
-  '@types/aos@3.0.8':
-    resolution: {integrity: sha512-Wydvt0OnVYO5YZxroBOYITIkAKtKmni9GUQRKuWMK3doplBSaHU11HIIweGwqF/ycmbHQGoLUQzuXFRVY+Ougg==}
 
   '@types/debug@4.1.13':
     resolution: {integrity: sha512-KSVgmQmzMwPlmtljOomayoR89W4FynCAi3E8PPs7vmDVPe84hT+vGPKkJfThkmXs0x0jAaa9U8uW8bbfyS2fWw==}
@@ -2385,10 +2371,6 @@ packages:
 
 snapshots:
 
-  '@astroanimate/core@0.1.2(astro@5.18.2(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.68.2)(typescript@5.9.3)(yaml@2.9.1))':
-    dependencies:
-      astro: 5.18.2(jiti@2.7.0)(lightningcss@1.33.0)(rollup@4.68.2)(typescript@5.9.3)(yaml@2.9.1)
-
   '@astrojs/astro2tsx@0.1.4':
     dependencies:
       '@emnapi/core': 1.11.3
@@ -3077,8 +3059,6 @@ snapshots:
   '@tybys/wasm-util@0.10.4':
     dependencies:
       tslib: 2.9.1
-
-  '@types/aos@3.0.8': {}
 
   '@types/debug@4.1.13':
     dependencies:

@@ -80,13 +80,9 @@ const solutions = [
 
 <div
   id="servicios"
-  data-pencil-name="What I Build"
   class="w-full max-w-360 mx-auto flex flex-col gap-10 sm:gap-12 xl:gap-14 px-5 py-14 sm:px-8 xl:p-[66px_64px_96px_64px] bg-[#EFF1EA]"
 >
-  <div
-    data-pencil-name="Section Head"
-    class="w-full flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between items-start xl:items-end"
-  >
+  <div class="w-full flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between items-start xl:items-end">
     <div class="w-full xl:w-fit flex flex-col gap-4 xl:gap-5">
       <p class="text-[11px]/[normal] text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px]">
         01 — LO QUE CONSTRUYO
@@ -116,10 +112,7 @@ const solutions = [
     </div>
   </div>
 
-  <div
-    data-pencil-name="Cards"
-    class="w-full xl:h-133.5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5"
-  >
+  <div class="w-full xl:h-133.5 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-5">
     {solutions.map((solution, index) => (
       <div
         data-aos="fade-up"
@@ -127,7 +120,6 @@ const solutions = [
         class="w-full h-full"
       >
         <div
-          data-pencil-name={`Card ${solution.title.join(" ")}`}
           class={`group w-full min-h-133.5 xl:h-full flex flex-col gap-6 p-5 sm:p-6 xl:p-6.5 justify-between border ${solution.theme.bg} ${solution.theme.border} cursor-pointer transition-transform duration-300 ease-out hover:-translate-y-2`}
         >
           <div class="w-full flex flex-col gap-4.5">

@@ -30,42 +30,24 @@ const steps: Step[] = [
 ];
 ---
 
-<section
-  aria-labelledby="como-funciona-title"
-  data-pencil-name="Cómo Funciona"
-  class="bg-[#0B0D09] w-full"
->
-  <div
-    data-pencil-name="How It Works"
-    class="max-w-360 mx-auto w-full flex flex-col gap-10 sm:gap-15 px-5 py-14 sm:px-8 sm:py-16 xl:p-[104px_64px_110px_64px]"
-  >
+<section aria-labelledby="como-funciona-title" class="bg-[#0B0D09] w-full">
+  <div class="max-w-360 mx-auto w-full flex flex-col gap-10 sm:gap-15 px-5 py-14 sm:px-8 sm:py-16 xl:p-[104px_64px_110px_64px]">
     <header
-      data-pencil-name="Head"
       data-aos="fade-up"
       class="w-full flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between xl:items-end"
     >
-      <div
-        data-pencil-name="Left"
-        class="w-full xl:w-196.75 flex flex-col gap-4 xl:gap-5"
-      >
-        <p
-          data-pencil-name="Eyebrow"
-          class="text-[11px]/[normal] text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px]"
-        >
+      <div class="w-full xl:w-196.75 flex flex-col gap-4 xl:gap-5">
+        <p class="text-[11px]/[normal] text-[#A7AC9F] font-['Geist_Mono',system-ui,sans-serif] tracking-[2.4px]">
           03 — CÓMO FUNCIONA
         </p>
         <h2
           id="como-funciona-title"
-          data-pencil-name="H2"
-          class="text-12/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] w-full xl:w-194 text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold"
+          class="text-[48px]/[44px] sm:text-[64px]/[60px] xl:text-[88px]/[87px] w-full xl:w-194 text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold"
         >
           PARA QUE EL SOFTWARE FUNCIONE.
         </h2>
       </div>
-      <p
-        data-pencil-name="Note"
-        class="text-[15px]/[24px] w-full max-w-75 xl:w-75 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
-      >
+      <p class="text-[15px]/[24px] w-full max-w-75 xl:w-75 text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]">
         Cuatro pasos, sin necesidad de un teatro de descubrimiento. Hablas
         directamente conmigo.
       </p>
@@ -73,12 +55,10 @@ const steps: Step[] = [
 
     <ol
       role="list"
-      data-pencil-name="Steps"
       class="w-full grid grid-cols-1 sm:grid-cols-2 xl:grid-cols-4 gap-x-6 gap-y-8 xl:gap-10"
     >
       {steps.map((step, index) => (
         <li
-          data-pencil-name={`Step ${step.num}`}
           data-aos="fade-up"
           data-aos-delay={index * 100}
           class="group relative flex flex-col gap-4 pt-6"
@@ -86,22 +66,13 @@ const steps: Step[] = [
           <div class="absolute top-0 left-0 w-full h-px bg-[#25291F]" />
           <div class="absolute top-0 left-0 w-full h-px bg-[#C7F14B] scale-x-0 origin-left transition-transform duration-500 ease-out group-hover:scale-x-100" />
 
-          <span
-            data-pencil-name="Num"
-            class="text-[11px]/[normal] text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.6px]"
-          >
+          <span class="text-[11px]/[normal] text-[#C7F14B] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.6px]">
             {step.num}
           </span>
-          <h3
-            data-pencil-name="Title"
-            class="text-[36px]/[32px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold transition-colors duration-300 group-hover:text-[#C7F14B]"
-          >
+          <h3 class="text-[36px]/[32px] text-[#F5F6EF] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold transition-colors duration-300 group-hover:text-[#C7F14B]">
             {step.title}
           </h3>
-          <p
-            data-pencil-name="Body"
-            class="text-[15px]/[26px] w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
-          >
+          <p class="text-[15px]/[26px] w-full text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]">
             {step.description}
           </p>
         </li>

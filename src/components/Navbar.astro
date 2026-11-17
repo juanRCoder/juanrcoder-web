@@ -13,15 +13,16 @@ const navLinks = [
   data-navbar
   class="fixed inset-x-0 top-0 z-50 bg-[#0B0D09]/75 backdrop-blur-md"
 >
-  <div
-    data-pencil-name="Nav"
-    class="max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 flex justify-between items-center"
-  >
+  <div class="max-w-360 mx-auto px-6 md:px-16 py-3 md:py-5.5 flex justify-between items-center">
     <div class="flex gap-2.5 items-center">
-      <div
-        class="w-9.75 h-11"
-        style="background-image: url('/logo1.png'); background-position: center; background-repeat: no-repeat; background-size: cover"
-      ></div>
+      <img
+        src="/logo1.png"
+        alt=""
+        width="39"
+        height="44"
+        class="w-9.75 h-11 object-cover"
+        decoding="async"
+      />
       <div class="text-[18px]/[normal] text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px] whitespace-nowrap">
         juanra
         <br />
@@ -46,7 +47,7 @@ const navLinks = [
     <Button
       label="Hablemos ↗"
       target="_blank"
-      href="https://wa.me/956402456"
+      href="https://wa.me/51956402456"
       aria-label="Cotizar por WhatsApp"
       class="hidden! md:flex! bg-transparent hover:bg-white/10 hover:shadow-[0_0_15px_rgba(245,246,239,0.2)] text-white hover:-translate-y-px gap-2 font-['Instrument_Sans',system-ui,sans-serif] border border-[#F5F6EF]/50 px-3.5 py-2.5"
     />

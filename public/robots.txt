@@ -1,4 +1,5 @@
 User-agent: *
 Allow: /
 
+Sitemap: https://juanrasoftware.lat/sitemap.xml
 Sitemap: https://juanrasoftware.lat/sitemap-index.xml
