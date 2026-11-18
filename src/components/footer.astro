@@ -1,29 +1,49 @@
 ---
 import { Image } from "astro:assets";
+import Facebook from "./icons/Facebook.astro";
+import Instagram from "./icons/Instagram.astro";
+import TikTok from "./icons/TikTok.astro";
 import logoImage from "../assets/logo1.webp";
 
-const footerData = {
+type FooterLink = {
+  label: string;
+  href?: string;
+  icon?: typeof Facebook;
+};
+
+const footerData: {
+  tagline: string;
+  columns: { title: string; links: FooterLink[] }[];
+  legalLinks: FooterLink[];
+  copyright: string;
+} = {
   tagline:
     "Desarrollador de Software especializado en aplicaciones web, dashboards, sistemas logísticos personalizados. Experiencia con NestJS, React, SQL y arquitecturas escalables",
   columns: [
     {
       title: "Construyo",
       links: [
-        "Paginas Web",
-        "Catalogos Digitales Personalizados",
-        "Sistemas de Gestion y Logistica",
+        { label: "Paginas Web", href: "#servicios" },
+        { label: "Catalogos Digitales Personalizados", href: "#servicios" },
+        { label: "Sistemas de Gestion y Logistica", href: "#servicios" },
       ],
     },
     {
       title: "Redes",
-      links: ["Facebook", "Instagram", "Tiktok"],
+      // Sin `href` el icono se muestra pero no es clicable.
+      links: [
+        { label: "Facebook", icon: Facebook /* href: "https://www.facebook.com/..." */ },
+        { label: "Instagram", icon: Instagram /* href: "https://www.instagram.com/..." */ },
+        { label: "TikTok", icon: TikTok, href: "https://www.tiktok.com/@juanrasoftware" },
+      ],
     },
   ],
+  // Agrega `href` cuando existan las páginas legales.
   legalLinks: [
-    "Cookies",
-    "Politicas de privacidad",
-    "Terminos de servicio",
-    "Libro de reclamaciones",
+    // { label: "Cookies" },
+    { label: "Politicas de privacidad", href: "/politicas-de-privacidad" },
+    { label: "Terminos de servicio", href: "/terminos-de-servicio" },
+    // { label: "Libro de reclamaciones" },
   ],
   copyright: "© 2026 Todos los derechos reservados.",
 };
@@ -68,15 +88,42 @@ const footerData = {
             >
               {column.title}
             </h3>
-            <ul class="flex flex-col gap-3">
+            <ul class="flex flex-col gap-3 data-[social]:flex-row data-[social]:gap-2.5" data-social={column.links.every((l) => l.icon) || undefined}>
               {column.links.map((link) => (
                 <li>
-                  <a
-                    href="#"
-                    class="text-[14px]/[normal] text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] hover:underline wrap-break-word"
-                  >
-                    {link}
-                  </a>
+                  {link.icon ? (
+                    link.href ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        aria-label={link.label}
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-[#25291F] text-[#A7AC9F] transition-all duration-300 hover:-translate-y-0.5 hover:border-[#C7F14B] hover:text-[#C7F14B]"
+                      >
+                        <link.icon aria-hidden="true" class="w-4.5 h-4.5" />
+                      </a>
+                    ) : (
+                      <span
+                        role="img"
+                        aria-label={link.label}
+                        title={link.label}
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-[#25291F] text-[#A7AC9F]"
+                      >
+                        <link.icon aria-hidden="true" class="w-4.5 h-4.5" />
+                      </span>
+                    )
+                  ) : link.href ? (
+                    <a
+                      href={link.href}
+                      class="text-[14px]/[normal] text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] hover:underline wrap-break-word"
+                    >
+                      {link.label}
+                    </a>
+                  ) : (
+                    <span class="text-[14px]/[normal] text-[#5C6158] font-['Instrument_Sans',system-ui,sans-serif] wrap-break-word">
+                      {link.label}
+                    </span>
+                  )}
                 </li>
               ))}
             </ul>
@@ -85,7 +132,7 @@ const footerData = {
       </div>
     </div>
     <div class="w-full border-t border-[#25291F]">
-      <div class="max-w-360 mx-auto w-full flex flex-col gap-y-5 pt-5 sm:flex-row sm:justify-between sm:items-start">
+      <div class="max-w-360 mx-auto w-full flex flex-col gap-5 pt-5 sm:flex-row sm:justify-between sm:items-start">
         <p class="text-[11px]/[normal] sm:text-[10px]/[normal] text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] tracking-[0.8px] sm:tracking-[1.2px] whitespace-nowrap">
           {footerData.copyright}
         </p>
@@ -94,9 +141,13 @@ const footerData = {
           <ul class="flex flex-wrap gap-x-2 gap-y-1">
             {footerData.legalLinks.map((legal) => (
               <li class="text-[11px]/[normal] sm:text-[10px]/[normal] text-[#8B9284] font-['Geist_Mono',system-ui,sans-serif] tracking-[0.8px] sm:tracking-[1.2px] whitespace-nowrap">
-                <a href="#" class="hover:underline">
-                  {legal}
-                </a>
+                {legal.href ? (
+                  <a href={legal.href} class="hover:underline">
+                    {legal.label}
+                  </a>
+                ) : (
+                  <span>{legal.label}</span>
+                )}
               </li>
             ))}
           </ul>
