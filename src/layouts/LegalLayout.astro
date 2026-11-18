@@ -19,17 +19,24 @@ const { title, description, updated } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="theme-color" content="#0B0D09" />
-    <link rel="icon" href={logoImage.src} type="image/webp" />
-    <link rel="apple-touch-icon" href={logoImage.src} />
+    <link rel="icon" href="/favicon.ico" sizes="48x48" />
+    <link rel="icon" type="image/png" href="/favicon-96.png" sizes="96x96" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <SEO title={`${title} | Juanra Software`} description={description} />
   </head>
   <body class="bg-[#EFF1EA] flex flex-col min-h-screen overflow-x-hidden">
     <header class="sticky top-0 z-50 bg-[#0B0D09]/75 backdrop-blur-md w-full">
       <div class="max-w-360 mx-auto px-6 md:px-16 py-4 flex justify-between items-center">
-        <a href="/" class="flex gap-2.5 items-center" aria-label="juanra software, ir al inicio">
+        <a
+          href="/"
+          class="flex gap-2.5 items-center"
+          aria-label="juanra software, ir al inicio"
+        >
           <Image src={logoImage} alt="" class="w-9.75 h-11 object-cover" />
           <span class="text-[18px]/[normal] text-[#A7AC9F] font-['Big_Shoulders',system-ui,sans-serif] font-extrabold tracking-[1px]">
-            juanra<br />software
+            juanra
+            <br />
+            software
           </span>
         </a>
         <a
@@ -48,9 +55,7 @@ const { title, description, updated } = Astro.props;
       <p class="mt-3 text-[12px] text-[#5C6158] font-['Geist_Mono',system-ui,sans-serif] tracking-[1.2px]">
         ÚLTIMA ACTUALIZACIÓN: {updated.toUpperCase()}
       </p>
-      <div
-        class="mt-10 flex flex-col gap-4 text-[16px]/[26px] text-[#2B2F26] font-['Instrument_Sans',system-ui,sans-serif] [&_h2]:mt-8 [&_h2]:text-3xl [&_h2]:text-[#0D0F0B] [&_h2]:font-['Big_Shoulders',system-ui,sans-serif] [&_h2]:font-extrabold [&_h2]:uppercase [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_a]:underline [&_a]:underline-offset-2"
-      >
+      <div class="mt-10 flex flex-col gap-4 text-[16px]/[26px] text-[#2B2F26] font-['Instrument_Sans',system-ui,sans-serif] [&_h2]:mt-8 [&_h2]:text-3xl [&_h2]:text-[#0D0F0B] [&_h2]:font-['Big_Shoulders',system-ui,sans-serif] [&_h2]:font-extrabold [&_h2]:uppercase [&_ul]:list-disc [&_ul]:pl-6 [&_ul]:flex [&_ul]:flex-col [&_ul]:gap-1.5 [&_a]:underline [&_a]:underline-offset-2">
         <slot />
       </div>
     </main>
@@ -61,7 +66,9 @@ const { title, description, updated } = Astro.props;
           aria-label="Enlaces del pie"
           class="border-t border-[#25291F] pt-8 flex flex-wrap items-center gap-x-2 text-[14px] text-[#A7AC9F] font-['Instrument_Sans',system-ui,sans-serif]"
         >
-          <a href="/" class="underline underline-offset-4 hover:text-[#C7F14B]">Inicio</a>
+          <a href="/" class="underline underline-offset-4 hover:text-[#C7F14B]">
+            Inicio
+          </a>
           <span aria-hidden="true">·</span>
           <a
             href="/politicas-de-privacidad"
@@ -75,10 +82,14 @@ const { title, description, updated } = Astro.props;
           <p>© 2026 juanra software. Todos los derechos reservados.</p>
           <ul class="flex flex-wrap gap-x-6 gap-y-2 font-semibold text-[#C7F14B]">
             <li>
-              <a href="/politicas-de-privacidad" class="hover:underline">Política de Privacidad</a>
+              <a href="/politicas-de-privacidad" class="hover:underline">
+                Política de Privacidad
+              </a>
             </li>
             <li>
-              <a href="/terminos-de-servicio" class="hover:underline">Términos de Servicio</a>
+              <a href="/terminos-de-servicio" class="hover:underline">
+                Términos de Servicio
+              </a>
             </li>
           </ul>
         </div>
