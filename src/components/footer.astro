@@ -24,7 +24,7 @@ const footerData: {
       title: "Construyo",
       links: [
         { label: "Paginas Web", href: "#servicios" },
-        { label: "Catalogos Digitales Personalizados", href: "#servicios" },
+        { label: "Menús Digitales Personalizados", href: "#servicios" },
         { label: "Sistemas de Gestion y Logistica", href: "#servicios" },
       ],
     },
@@ -88,7 +88,7 @@ const footerData: {
             >
               {column.title}
             </h3>
-            <ul class="flex flex-col gap-3 data-[social]:flex-row data-[social]:gap-2.5" data-social={column.links.every((l) => l.icon) || undefined}>
+            <ul class="flex flex-col gap-3 data-social:flex-row data-social:gap-2.5" data-social={column.links.every((l) => l.icon) || undefined}>
               {column.links.map((link) => (
                 <li>
                   {link.icon ? (

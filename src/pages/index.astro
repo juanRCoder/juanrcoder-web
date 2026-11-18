@@ -10,9 +10,9 @@ import "../styles/global.css";
 import logoImage from "../assets/logo1.webp";
 import heroImage from "../assets/hero_image_1.webp";
 
-const title = "Juanra | Software";
+const title = "juanra software | Páginas web y sistemas a medida en Lima";
 const description =
-  "Páginas web profesionales, catálogos digitales y sistemas de gestión a medida para negocios. Hablas directo conmigo, sin intermediarios.";
+  "Desarrollador web en Lima, Perú: páginas web profesionales, menús digitales y sistemas de gestión a medida para negocios. Hablas directo conmigo, sin intermediarios.";
 const siteUrl = Astro.site!.href;
 const jsonLd = {
   "@context": "https://schema.org",
@@ -21,16 +21,33 @@ const jsonLd = {
       "@type": "ProfessionalService",
       "@id": `${siteUrl}#business`,
       name: "juanra software",
+      alternateName: ["Juanra Software", "juanrasoftware"],
       description:
-        "Desarrollo de páginas web, catálogos digitales y sistemas de gestión a medida",
+        "Desarrollo de páginas web, menús digitales y sistemas de gestión a medida en Lima, Perú",
       url: siteUrl,
       logo: new URL(logoImage.src, siteUrl).href,
       image: new URL(heroImage.src, siteUrl).href,
-      areaServed: { "@type": "City", name: "Lima" },
+      areaServed: [
+        { "@type": "City", name: "Lima" },
+        { "@type": "Country", name: "Perú" },
+      ],
       address: {
         "@type": "PostalAddress",
         addressLocality: "Lima",
+        addressRegion: "Lima",
         addressCountry: "PE",
+      },
+      hasOfferCatalog: {
+        "@type": "OfferCatalog",
+        name: "Servicios",
+        itemListElement: [
+          "Páginas web profesionales",
+          "Menús digitales personalizados",
+          "Sistemas de gestión y logística a medida",
+        ].map((name) => ({
+          "@type": "Offer",
+          itemOffered: { "@type": "Service", name },
+        })),
       },
       knowsLanguage: "es",
       telephone: "+51956402456",
