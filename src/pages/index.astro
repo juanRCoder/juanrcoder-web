@@ -53,6 +53,22 @@ const jsonLd = {
       telephone: "+51956402456",
       email: "juanra@gmail.com",
       sameAs: ["https://www.tiktok.com/@juanrasoftware"],
+      founder: { "@id": `${siteUrl}#person` },
+    },
+    {
+      "@type": "Person",
+      "@id": `${siteUrl}#person`,
+      name: "Juanra",
+      alternateName: ["juanra", "Juanra Software"],
+      jobTitle: "Desarrollador web",
+      url: siteUrl,
+      worksFor: { "@id": `${siteUrl}#business` },
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Lima",
+        addressCountry: "PE",
+      },
+      sameAs: ["https://www.tiktok.com/@juanrasoftware"],
     },
     {
       "@type": "WebSite",
