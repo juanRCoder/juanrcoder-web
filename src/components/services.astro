@@ -1,18 +1,22 @@
 ---
+import Button from "./ui/Button.astro";
+
 const solutions = [
   {
     number: "01",
     category: "SITIO WEB",
     title: ["PAGINAS", "WEB"],
-    description:
-      "Una sola página pensada para que quien entre entienda qué hacés y te escriba. Rápida, clara, sin ruido.",
+    quoteMessage: "Hola, quiero cotizar una página web para mi negocio.",
+    description: "Lista para campañas de publicidad y para aparecer en Google.",
     features: [
       "Diseño a medida, sin plantillas",
-      "Textos y estructura incluidos",
-      "Optimizada para Google",
-      "Publicación y dominio",
+      "Redacción persuasiva (copy)",
+      "SEO básico + Google Maps",
+      "Botón y link a WhatsApp",
+      "Formulario de contacto",
+      "Publicación y dominio incluidos",
     ],
-    timelineValue: "1 – 7 DÍAS aprox",
+    timelineValue: "1 - 7 DÍAS aprox",
     progressWidth: "28%",
     theme: {
       bg: "bg-[#0B0D09]",
@@ -23,21 +27,25 @@ const solutions = [
       bullet: "bg-[#ddff75]",
       progressTrack: "bg-[#25291F]",
       progressBar: "bg-[#ddff75]",
+      quoteButton:
+        "bg-[#ddff75] text-[#0D0F0B] hover:bg-[#b0d941]",
     },
   },
   {
     number: "02",
     category: "COMERCIO",
     title: ["MENÚS", "DIGITALES"],
+    quoteMessage: "Hola, quiero cotizar un catálogo digital para mi negocio.",
     description:
-      "Tu menú real, con fotos y precios. Eligen, piden por WhatsApp y el pedido te llega detallado.",
+      "Tu menú real, con fotos y precios. Para negocios que actualizan productos y precios seguido.",
     features: [
-      "Carga de productos y fotos",
-      "Pedido armado automático",
-      "Sin comisiones por venta",
-      "Actualizable sin depender de mí",
+      "35 productos cargados(negociable)",
+      "Categorías y buscador",
+      "Panel para que actualices solo",
+      "SEO de productos + Google Maps",
+      "Carrito con pedido a WhatsApp",
     ],
-    timelineValue: "1 – 14 DÍAS aprox",
+    timelineValue: "1 - 14 DÍAS aprox",
     progressWidth: "55%",
     theme: {
       bg: "bg-[#ddff75]",
@@ -48,18 +56,21 @@ const solutions = [
       bullet: "bg-[#0D0F0B]",
       progressTrack: "bg-[#AFD93F]",
       progressBar: "bg-[#0D0F0B]",
+      quoteButton:
+        "bg-[#0D0F0B] text-[#F5F6EF] hover:bg-[#25291F]",
     },
   },
   {
     number: "03",
     category: "SOFTWARE",
     title: ["SISTEMA", "A MEDIDA"],
+    quoteMessage: "Hola, quiero cotizar un sistema a medida para mi negocio.",
     description:
       "Automatiza procesos, gestiona tu negocio, inventario y clientes desde un solo lugar.",
     features: [
-      "Relevamiento y alcance de productos limitado",
-      "Usuarios, roles y permisos",
-      "Reportes, gestion y cierres",
+      "Paneles administrativos",
+      "Reservas y pedidos",
+      "Control de stock, ventas y reportes exportables",
       "Capacitación y soporte",
     ],
     timelineValue: "MÁX. 1 MES aprox",
@@ -73,6 +84,8 @@ const solutions = [
       bullet: "bg-[#0D0F0B]",
       progressTrack: "bg-[#D2D6C8]",
       progressBar: "bg-[#0D0F0B]",
+      quoteButton:
+        "bg-[#0D0F0B] text-[#F5F6EF] hover:bg-[#25291F]",
     },
   },
 ];
@@ -80,7 +93,7 @@ const solutions = [
 
 <div
   id="servicios"
-  class="w-full max-w-360 mx-auto flex flex-col gap-10 sm:gap-12 xl:gap-14 px-5 py-14 sm:px-8 xl:p-[66px_64px_96px_64px] bg-[#EFF1EA]"
+  class="w-full max-w-360 mx-auto flex flex-col gap-10 sm:gap-12 xl:gap-14 px-5 py-14 sm:px-8 xl:p-[66px_64px_126px_64px] bg-[#EFF1EA]"
 >
   <div class="w-full flex flex-col gap-6 xl:flex-row xl:gap-12 justify-between items-start xl:items-end">
     <div class="w-full xl:w-fit flex flex-col gap-4 xl:gap-5">
@@ -189,6 +202,13 @@ const solutions = [
                 style={`width: ${solution.progressWidth}`}
               />
             </div>
+            <Button
+              label="Cotizar ↗"
+              href={`https://wa.me/51956402456?text=${encodeURIComponent(solution.quoteMessage)}`}
+              target="_blank"
+              aria-label={`Cotizar ${solution.category.toLowerCase()} por WhatsApp`}
+              class={`w-full mt-2 font-['Instrument_Sans',system-ui,sans-serif] ${solution.theme.quoteButton}`}
+            />
           </div>
         </div>
       </div>
