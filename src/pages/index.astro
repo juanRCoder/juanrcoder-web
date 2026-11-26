@@ -93,6 +93,12 @@ const jsonLd = {
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
     <SEO title={title} description={description} />
     <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-WP9XJ9DM"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+    </script>
   </head>
   <body class="box-border h-fit flex flex-col gap-0 justify-start items-start bg-[#EFF1EA] mx-auto overflow-x-hidden">
     <Hero />
